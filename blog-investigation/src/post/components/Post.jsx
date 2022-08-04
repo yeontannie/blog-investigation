@@ -1,8 +1,11 @@
 import React from 'react'
+import {useTranslation} from '../../shared/hooks/useTranslation'
 
 function Post() {
+  const {translateText} = useTranslation() 
+  const language = localStorage.getItem('language')
   return (
-    <div>Post</div>
+    <div>{translateText("a Post", language)}</div>
   )
 }
 

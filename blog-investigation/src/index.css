@@ -33,13 +33,20 @@ code {
 
 .ant-menu-overflow-item.ant-menu-item.ant-menu-item-selected.ant-menu-item-only-child.toggler, 
 .ant-menu-overflow-item.ant-menu-item.ant-menu-item-selected.ant-menu-item-only-child.logo,
+.ant-menu-overflow-item.ant-menu-item.ant-menu-item-selected.ant-menu-item-only-child.language,
 .ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.toggler:hover, 
-.ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.logo:hover {
+.ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.logo:hover,
+.ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.language:hover {
   background-color: transparent;
 }
 
 .ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.logo{
   margin-left: 50px;
+  margin-right: auto;
+}
+
+.ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.menu-login {
+  margin-right: 50px;
 }
 
 .ant-layout-content.dark, .ant-layout-content.light {

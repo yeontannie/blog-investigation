@@ -3,10 +3,15 @@ import { Link } from 'react-router-dom'
 import { Layout, Menu, Switch } from 'antd'
 import logo from '../../assets/logo.png'
 import { ThemeContextConsumer } from '../store/ThemeContext'
+import SelectLang from '../components/SelectLang'
+import {GoogleOutlined} from '@ant-design/icons'
+import { useTranslation } from '../hooks/useTranslation'
 
 const { Header } = Layout
 
-function Navbar() {
+function Navbar({language, toggleLanguage}) {
+  const {translateText} = useTranslation()
+
   return (
     <ThemeContextConsumer>
       {({theme, toggleTheme}) => (
@@ -22,7 +27,8 @@ function Navbar() {
                 unCheckedChildren={theme === 'light' ? 'Light' : 'Dark'}
               />
             </Menu.Item>
-            <Menu.Item key="3"><Link to="/login">Login</Link></Menu.Item>
+            <Menu.Item className='language' key="3"><SelectLang language={language} toggleLanguage={toggleLanguage} /></Menu.Item>
+            <Menu.Item key="4" className='menu-login'><Link to="/login"><GoogleOutlined /> {translateText('Login', language)}</Link></Menu.Item>
           </Menu>
         </Header>
       )}

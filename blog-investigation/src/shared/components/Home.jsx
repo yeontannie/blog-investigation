@@ -1,8 +1,11 @@
 import React from 'react'
+import {useTranslation} from '../hooks/useTranslation'
 
 function Home() {
+  const {translateText} = useTranslation() 
+  const language = localStorage.getItem('language')
   return (
-    <div>Home</div>
+    <div>{translateText('Home', language)}</div>
   )
 }
 

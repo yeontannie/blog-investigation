@@ -3,12 +3,12 @@ import { Select } from 'antd';
 
 const { Option } = Select;
 
-export default function SelectLang(props){
+export default function SelectLang({language, toggleLanguage}){
     return(
         <Select
-            defaultValue={props.language}
+            defaultValue={language}
             style={{width: 120}}
-            onChange={props.toggleLanguage}
+            onChange={toggleLanguage}
         >
             <Option value="uk">Українська</Option>
             <Option value="en">English</Option>

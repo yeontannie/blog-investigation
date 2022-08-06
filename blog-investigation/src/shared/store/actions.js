@@ -22,3 +22,14 @@ export const toggleLanguage = (language) => {
         }
     }
 }
+
+export const addAccessToken = (token) => {
+    localStorage.setItem('token', JSON.stringify(token))
+    
+    return{
+        type:'ADD_ACCESS_TOKEN',
+        payload:{
+            accessToken:token
+        }
+    }
+}

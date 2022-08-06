@@ -5,10 +5,13 @@ import logo from '../../assets/logo.png'
 import { useUserSettingsContext } from '../store/UserSettingsProvider'
 import ThemeToggler from '../components/ThemeToggler'
 
+import Login from '../authentication/Login'
+import Logout from '../authentication/Logout'
+
 const { Header } = Layout
 
 function Navbar() {
-  const {theme, toggleTheme} = useUserSettingsContext()
+  const {theme, toggleTheme, accessToken} = useUserSettingsContext()
 
   return (
     <Header className={theme} style={{width: '100%'}}>
@@ -21,11 +24,11 @@ function Navbar() {
         <Menu.Item className='toggler' key="2">
           <ThemeToggler theme={theme} toggleTheme={toggleTheme} />
         </Menu.Item>
-        <Menu.Item key="3">
-          <Link to="/login">
-            Login
-          </Link>
-        </Menu.Item>
+        { accessToken === '' ? <>
+          <Menu.Item key="4" className='menu-login'><Login/></Menu.Item>
+        </> : <>
+          <Menu.Item key="5" className='menu-login'><Logout/></Menu.Item>
+        </>}
       </Menu>
     </Header>
   )

@@ -33,13 +33,21 @@ code {
 
 .ant-menu-overflow-item.ant-menu-item.ant-menu-item-selected.ant-menu-item-only-child.toggler, 
 .ant-menu-overflow-item.ant-menu-item.ant-menu-item-selected.ant-menu-item-only-child.logo,
+.ant-menu-overflow-item.ant-menu-item.ant-menu-item-selected.ant-menu-item-only-child.menu-login,
 .ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.toggler:hover, 
-.ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.logo:hover {
+.ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.logo:hover,
+.ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.menu-login:hover {
   background-color: transparent;
+  color: #141414;
 }
 
 .ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.logo{
   margin-left: 50px;
+  margin-right: auto;
+}
+
+.ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.menu-login {
+  margin-right: 50px;
 }
 
 .ant-layout-content.dark, .ant-layout-content.light {
@@ -59,4 +67,15 @@ code {
 .ant-layout-content.dark h1, .ant-layout-content.dark h2, .ant-layout-content.dark h3, 
 .ant-layout-content.dark h4, .ant-layout-content.dark h5, .ant-layout-content.dark h6 {
   color: whitesmoke;
+}
+
+/* .ant-menu-overflow-item.ant-menu-item.ant-menu-item-active.ant-menu-item-selected.ant-menu-item-only-child.menu-login::after {
+  color:#141414;
+} */
+.ant-btn.ant-btn-default.login-btn, .ant-btn.ant-btn-default.logout-btn {
+  max-height: 30px;
+  background-color: whitesmoke;
+  font-weight: 400;
+  border: 1px solid transparent;
+  box-shadow: rgb(0 0 0 / 24%) 0px 2px 2px 0px, rgb(0 0 0 / 24%) 0px 0px 1px 0px;
 }

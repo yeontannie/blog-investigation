@@ -2,7 +2,7 @@ import { useReducer, useContext, useMemo } from 'react'
 
 import {UserSettingsContext} from './context'
 import userSettingsReducer, {userSettingsInitialState} from './reducer'
-import { toggleTheme, toggleLanguage } from './actions'
+import { toggleTheme, toggleLanguage, addAccessToken } from './actions'
 
 const UserSettingsProvider = ({children}) => {
     const [state, dispatch] = useReducer(userSettingsReducer, userSettingsInitialState) 
@@ -11,7 +11,8 @@ const UserSettingsProvider = ({children}) => {
         return {
             ...state,
             toggleTheme: () => dispatch(toggleTheme(state.theme)),
-            toggleLanguage: () => dispatch(toggleLanguage(state.language))
+            toggleLanguage: () => dispatch(toggleLanguage(state.language)),
+            addAccessToken: (token) => dispatch(addAccessToken(token))
         }
     }, [state, dispatch])
 

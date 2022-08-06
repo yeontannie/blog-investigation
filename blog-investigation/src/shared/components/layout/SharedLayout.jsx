@@ -1,11 +1,15 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Layout } from 'antd'
+import { useUserSettingsContext } from '../../store/UserSettingsProvider'
 
-function SharedLayout() {
+const { Content } = Layout
+
+function SharedLayout(props) {
+  const {theme} = useUserSettingsContext()
   return (
-    <div>
-      <Outlet />
-    </div>
+    <Content className={theme} >
+      {props.children}
+    </Content>
   )
 }
 

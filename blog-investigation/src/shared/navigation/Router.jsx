@@ -11,15 +11,13 @@ import Post from '../../post/components/Post'
 export default function Router() {
   return (
     <Routes>
-      <Route path='/' element={<SharedLayout />}>
-        <Route index element={<Home />} />
-        <Route path='posts' element={<SharedPostsLayout />}>
+      <Route path='/' element={<Home />} />
+        <Route path='/posts' element={<SharedPostsLayout />}>
           <Route index element={<Posts />} />
           <Route path=':postId' element={<Post />}/>
         </Route>
-        <Route path='login' element={<Login />} />
+        <Route path='/login' element={<Login />} />
         <Route path='*' element={<Error />} />
-      </Route>
     </Routes>
   )
 }

@@ -6,16 +6,15 @@ import { toggleTheme, toggleLanguage, setAccessToken } from './actions'
 const UserSettingsProvider = ({children}) => {
     const [state, dispatch] = useReducer(userSettingsReducer, userSettingsInitialState) 
     
-    const setTheme = (theme) => {
-        const newTheme = theme ? 'dark' : 'light'
+    const setTheme = (checked) => {
+        const newTheme = checked ? 'dark' : 'light'
         localStorage.setItem('theme', newTheme)
         dispatch(toggleTheme(newTheme))
     }
 
     const setLanguage = (language) => {
-        const newLanguage = language === 'uk' ? 'en' : 'uk'
-        localStorage.setItem('language', newLanguage)
-        dispatch(toggleLanguage(newLanguage))
+        localStorage.setItem('language', language)
+        dispatch(toggleLanguage(language))
     }
 
     const userSettingsContextValue = useMemo(() => {

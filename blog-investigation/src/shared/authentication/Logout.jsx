@@ -1,18 +1,21 @@
 import React from 'react'
-import {Button} from 'antd'
-import {GoogleOutlined} from '@ant-design/icons'
-import {GoogleLogout} from 'react-google-login'
+import { Button } from 'antd'
+import { GoogleOutlined } from '@ant-design/icons'
+import { GoogleLogout } from 'react-google-login'
 import { CLIENT_ID } from '../../secret.env'
 import { useAuthService } from '../hooks/useAuthService'
+import { useTranslation } from '../hooks/useTranslation'
 
 function Logout(){
     const {onSuccessLogout} = useAuthService()
+    const text = useTranslation('Logout')
+
     return(
         <span>
             <GoogleLogout 
                 render={renderProps => (
                     <Button className='logout-btn' onClick={renderProps.onClick} disabled={renderProps.disabled}>
-                        <GoogleOutlined/> Logout
+                        <GoogleOutlined/> {text}
                     </Button>
                 )}
                 clientId={CLIENT_ID}

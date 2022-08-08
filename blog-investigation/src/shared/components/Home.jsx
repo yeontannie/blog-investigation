@@ -1,8 +1,13 @@
 import React from 'react'
+import { useTranslation } from '../hooks/useTranslation'
 
 function Home() {
   return (
-    <div>Home</div>
+    <div>
+      {useTranslation('Home')}   
+      <br/> 
+      {useTranslation('A list of blogs will be displayed here')}
+    </div>
   )
 }
 

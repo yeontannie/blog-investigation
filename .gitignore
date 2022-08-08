@@ -1,2 +1,3 @@
 
 blog-investigation/src/secret.env.js
+*.json

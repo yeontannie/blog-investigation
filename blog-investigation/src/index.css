@@ -49,10 +49,6 @@ code {
   margin-right: 50px;
 }
 
-.ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.menu-login-dark {
-  color: #141414;
-}
-
 .ant-layout-content.dark, .ant-layout-content.light {
   padding: 40px 20px;
   height: 89.9vh;

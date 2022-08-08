@@ -19,7 +19,6 @@ function Login() {
         onSuccess={onSuccessLogin}
         onFailure={onFailureLogin}
         cookiePolicy={'single_host_origin'}
-        isSignedIn={true}
       />
     </span>
   )

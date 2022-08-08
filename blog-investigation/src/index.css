@@ -11,3 +11,52 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+.ant-menu-overflow.ant-menu.ant-menu-root.ant-menu-horizontal.ant-menu-dark {
+  background: #141414;
+  position:relative;
+  box-shadow: 0px 6px 12px 0 rgba(0, 0, 0, 0.95);
+}
+
+.ant-layout-header.light{
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+  padding: 0 0;
+}
+
+.ant-layout-header.dark {
+  padding: 0 0;
+}
+
+.ant-menu-overflow-item.ant-menu-item.ant-menu-item-selected.ant-menu-item-only-child.toggler, 
+.ant-menu-overflow-item.ant-menu-item.ant-menu-item-selected.ant-menu-item-only-child.logo,
+.ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.toggler:hover, 
+.ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.logo:hover {
+  background-color: transparent;
+}
+
+.ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.logo{
+  margin-left: 50px;
+}
+
+.ant-layout-content.dark, .ant-layout-content.light {
+  padding: 40px 20px;
+  height: 89.9vh;
+}
+
+.ant-layout-content.dark {
+  background: #141414;
+  color: whitesmoke;
+}
+
+.ant-layout-content.light {
+  color: #141414;
+}
+
+.ant-layout-content.dark h1, .ant-layout-content.dark h2, .ant-layout-content.dark h3, 
+.ant-layout-content.dark h4, .ant-layout-content.dark h5, .ant-layout-content.dark h6 {
+  color: whitesmoke;
+}

@@ -1,21 +1,16 @@
 import 'antd/dist/antd.min.css' 
-import { Button, Result } from 'antd';
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom'
+import Navbar from './shared/navigation/Navbar'
+import Main from './shared/components/layout/Main';
 
-function App() {
+function App() {  
   return (
     <div className="App">
-      <Result
-        status="success"
-        title="Successfully installed ANT Desing!"
-        subTitle="2017182818828182881 packages have been installed, good luck."
-        extra={[
-          <Button type="primary" key="console">
-            Thanks
-          </Button>,
-          <Button key="buy">Shoosh...</Button>,
-        ]}
-      />
+      <BrowserRouter>
+        <Navbar />
+        <Main />
+      </BrowserRouter>
     </div>
   );
 }

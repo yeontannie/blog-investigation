@@ -24,11 +24,7 @@ function Navbar() {
         <Menu.Item className='toggler' key="2">
           <ThemeToggler theme={theme} toggleTheme={toggleTheme} />
         </Menu.Item>
-        { accessToken === '' ? <>
-          <Menu.Item key="4" className='menu-login'><Login/></Menu.Item>
-        </> : <>
-          <Menu.Item key="5" className='menu-login'><Logout/></Menu.Item>
-        </>}
+        <Menu.Item key="4" className='menu-login'>{ accessToken === '' ? <Login/> : <Logout/> }</Menu.Item>
       </Menu>
     </Header>
   )

@@ -1,8 +1,5 @@
 
-export const toggleTheme = (theme) => {
-    const newTheme = theme === 'light' ? 'dark' : 'light'
-    localStorage.setItem('theme', newTheme)
-
+export const toggleTheme = (newTheme) => {
     return {
         type:"TOGGLE_THEME",
         payload:{
@@ -11,10 +8,7 @@ export const toggleTheme = (theme) => {
     }
 }
 
-export const toggleLanguage = (language) => {
-    const newLanguage = language === 'uk' ? 'en' : 'uk'
-    localStorage.setItem('language', newLanguage)
-
+export const toggleLanguage = (newLanguage) => {
     return {
         type:'TOGGLE_LANGUAGE',
         payload:{
@@ -23,11 +17,9 @@ export const toggleLanguage = (language) => {
     }
 }
 
-export const addAccessToken = (token) => {
-    localStorage.setItem('token', JSON.stringify(token))
-    
+export const setAccessToken = (token) => {    
     return{
-        type:'ADD_ACCESS_TOKEN',
+        type:'SET_ACCESS_TOKEN',
         payload:{
             accessToken:token
         }

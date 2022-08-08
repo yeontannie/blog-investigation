@@ -1,7 +1,7 @@
 export const userSettingsInitialState = {
     theme: localStorage.getItem('theme') || 'light',
     language: localStorage.getItem('language') || 'uk',
-    accessToken: localStorage.getItem('token') || ''
+    accessToken: ''
 }
 
 const userSettingsReducer = (state, action) => {
@@ -20,14 +20,14 @@ const userSettingsReducer = (state, action) => {
                 language: payload.language
             }
             
-        case "ADD_ACCESS_TOKEN":
+        case "SET_ACCESS_TOKEN":
             return{
                 ...state,
                 accessToken: payload.accessToken
             }
 
         default:
-            throw new Error(`no case for type ${type} found in userSettingsReducer`)
+            return userSettingsInitialState;
     }
 }
 

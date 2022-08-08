@@ -6,6 +6,7 @@ const { Content } = Layout
 
 function SharedLayout(props) {
   const {theme} = useUserSettingsContext()
+  
   return (
     <Content className={theme} >
       {props.children}

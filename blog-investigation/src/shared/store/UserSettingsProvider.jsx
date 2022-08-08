@@ -1,18 +1,29 @@
-import { useReducer, useContext, useMemo } from 'react'
-
-import {UserSettingsContext} from './context'
-import userSettingsReducer, {userSettingsInitialState} from './reducer'
-import { toggleTheme, toggleLanguage, addAccessToken } from './actions'
+import React, { useReducer, useContext, useMemo } from 'react'
+import { UserSettingsContext } from './context'
+import userSettingsReducer, { userSettingsInitialState } from './reducer'
+import { toggleTheme, toggleLanguage, setAccessToken } from './actions'
 
 const UserSettingsProvider = ({children}) => {
     const [state, dispatch] = useReducer(userSettingsReducer, userSettingsInitialState) 
+    
+    const setTheme = (theme) => {
+        const newTheme = theme ? 'dark' : 'light'
+        localStorage.setItem('theme', newTheme)
+        dispatch(toggleTheme(newTheme))
+    }
+
+    const setLanguage = (language) => {
+        const newLanguage = language === 'uk' ? 'en' : 'uk'
+        localStorage.setItem('language', newLanguage)
+        dispatch(toggleLanguage(newLanguage))
+    }
 
     const userSettingsContextValue = useMemo(() => {
         return {
             ...state,
-            toggleTheme: () => dispatch(toggleTheme(state.theme)),
-            toggleLanguage: () => dispatch(toggleLanguage(state.language)),
-            addAccessToken: (token) => dispatch(addAccessToken(token))
+            toggleTheme: (theme) => setTheme(theme),
+            toggleLanguage: (language) => setLanguage(language),
+            setAccessToken: (token) => dispatch(setAccessToken(token))
         }
     }, [state, dispatch])
 

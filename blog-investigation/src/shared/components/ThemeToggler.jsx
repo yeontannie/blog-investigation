@@ -3,11 +3,12 @@ import {Switch} from 'antd'
 
 function ThemeToggler({theme, toggleTheme}) {
   return (
-        <Switch 
-            onChange={toggleTheme}
-            checkedChildren={theme === 'light' ? 'Light' : 'Dark'}
-            unCheckedChildren={theme === 'light' ? 'Light' : 'Dark'}
-        />
+    <Switch 
+      checked={theme === 'dark'}
+      onChange={toggleTheme}
+      checkedChildren='Dark' 
+      unCheckedChildren='Light'
+    />
   )
 }
 

@@ -38,7 +38,6 @@ code {
 .ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.logo:hover,
 .ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.menu-login:hover {
   background-color: transparent;
-  color: #141414;
 }
 
 .ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.logo{
@@ -48,6 +47,10 @@ code {
 
 .ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.menu-login {
   margin-right: 50px;
+}
+
+.ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.menu-login-dark {
+  color: #141414;
 }
 
 .ant-layout-content.dark, .ant-layout-content.light {
@@ -69,12 +72,10 @@ code {
   color: whitesmoke;
 }
 
-/* .ant-menu-overflow-item.ant-menu-item.ant-menu-item-active.ant-menu-item-selected.ant-menu-item-only-child.menu-login::after {
-  color:#141414;
-} */
 .ant-btn.ant-btn-default.login-btn, .ant-btn.ant-btn-default.logout-btn {
   max-height: 30px;
   background-color: whitesmoke;
+  color: #141414;
   font-weight: 400;
   border: 1px solid transparent;
   box-shadow: rgb(0 0 0 / 24%) 0px 2px 2px 0px, rgb(0 0 0 / 24%) 0px 0px 1px 0px;

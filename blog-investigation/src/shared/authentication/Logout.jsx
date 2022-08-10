@@ -1,12 +1,13 @@
 import React from 'react'
-import {Button} from 'antd'
-import {GoogleOutlined} from '@ant-design/icons'
-import {GoogleLogout} from 'react-google-login'
+import { Button } from 'antd'
+import { GoogleOutlined } from '@ant-design/icons'
+import { GoogleLogout } from 'react-google-login'
 import { CLIENT_ID } from '../../secret.env'
-import { useAuthService } from '../hooks/useAuthService'
+import { useGapiAuth } from '../hooks/useGapiAuth'
 
 function Logout(){
-    const {onSuccessLogout} = useAuthService()
+    const {onSuccessLogout} = useGapiAuth()
+
     return(
         <span>
             <GoogleLogout 

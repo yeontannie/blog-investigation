@@ -4,14 +4,13 @@ import { Layout, Menu } from 'antd'
 import logo from '../../assets/logo.png'
 import { useUserSettingsContext } from '../store/UserSettingsProvider'
 import ThemeToggler from '../components/ThemeToggler'
-
 import Login from '../authentication/Login'
 import Logout from '../authentication/Logout'
 
 const { Header } = Layout
 
 function Navbar() {
-  const {theme, toggleTheme, accessToken} = useUserSettingsContext()
+  const {theme, isLoggedIn} = useUserSettingsContext()
 
   return (
     <Header className={theme} style={{width: '100%'}}>
@@ -22,9 +21,11 @@ function Navbar() {
           </Link>
         </Menu.Item> 
         <Menu.Item className='toggler' key="2">
-          <ThemeToggler theme={theme} toggleTheme={toggleTheme} />
+          <ThemeToggler />
         </Menu.Item>
-        <Menu.Item key="4" className='menu-login'>{ accessToken === '' ? <Login/> : <Logout/> }</Menu.Item>
+        <Menu.Item key="4" className='menu-login'>
+          { isLoggedIn ? <Logout /> : <Login /> }
+        </Menu.Item>
       </Menu>
     </Header>
   )

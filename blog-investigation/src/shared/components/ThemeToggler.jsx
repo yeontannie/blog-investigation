@@ -1,7 +1,10 @@
 import React from 'react'
-import {Switch} from 'antd'
+import { Switch } from 'antd'
+import { useUserSettingsContext } from '../store/UserSettingsProvider'
 
-function ThemeToggler({theme, toggleTheme}) {
+function ThemeToggler() {
+  const {theme, toggleTheme} = useUserSettingsContext()
+  
   return (
     <Switch 
       checked={theme === 'dark'}

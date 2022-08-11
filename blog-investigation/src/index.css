@@ -20,6 +20,7 @@ code {
   background: #141414;
   position:relative;
   box-shadow: 0px 6px 12px 0 rgba(0, 0, 0, 0.95);
+  z-index: 1;
 }
 
 .ant-layout-header.light{
@@ -33,18 +34,27 @@ code {
 
 .ant-menu-overflow-item.ant-menu-item.ant-menu-item-selected.ant-menu-item-only-child.toggler, 
 .ant-menu-overflow-item.ant-menu-item.ant-menu-item-selected.ant-menu-item-only-child.logo,
+.ant-menu-overflow-item.ant-menu-item.ant-menu-item-selected.ant-menu-item-only-child.menu-login,
 .ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.toggler:hover, 
-.ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.logo:hover {
+.ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.logo:hover,
+.ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.menu-login:hover {
   background-color: transparent;
 }
 
 .ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.logo{
   margin-left: 50px;
+  margin-right: auto;
+}
+
+.ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.menu-login {
+  margin-right: 50px;
 }
 
 .ant-layout-content.dark, .ant-layout-content.light {
   padding: 40px 20px;
-  height: 89.9vh;
+  position: fixed;
+  height: 100%;
+  width: 100%;
 }
 
 .ant-layout-content.dark {
@@ -59,4 +69,13 @@ code {
 .ant-layout-content.dark h1, .ant-layout-content.dark h2, .ant-layout-content.dark h3, 
 .ant-layout-content.dark h4, .ant-layout-content.dark h5, .ant-layout-content.dark h6 {
   color: whitesmoke;
+}
+
+.ant-btn.ant-btn-default.login-btn, .ant-btn.ant-btn-default.logout-btn {
+  max-height: 30px;
+  background-color: whitesmoke;
+  color: #141414;
+  font-weight: 400;
+  border: 1px solid transparent;
+  box-shadow: rgb(0 0 0 / 24%) 0px 2px 2px 0px, rgb(0 0 0 / 24%) 0px 0px 1px 0px;
 }

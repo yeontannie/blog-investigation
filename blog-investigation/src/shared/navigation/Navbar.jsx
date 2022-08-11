@@ -1,32 +1,33 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Layout, Menu, Switch } from 'antd'
+import { Layout, Menu } from 'antd'
 import logo from '../../assets/logo.png'
-import { ThemeContextConsumer } from '../store/ThemeContext'
+import { useUserSettingsContext } from '../store/UserSettingsProvider'
+import ThemeToggler from '../components/ThemeToggler'
+import Login from '../authentication/Login'
+import Logout from '../authentication/Logout'
 
 const { Header } = Layout
 
 function Navbar() {
+  const {theme, isLoggedIn} = useUserSettingsContext()
+
   return (
-    <ThemeContextConsumer>
-      {({theme, toggleTheme}) => (
-        <Header className={theme} style={{width: '100%'}}>
-          <Menu theme={theme} mode="horizontal" defaultSelectedKeys={['1']}>
-            <Menu.Item key="1" className='logo'><Link to="/">
-              <img src={logo} alt='logo' style={{height: '50px'}}/>
-            </Link></Menu.Item> 
-            <Menu.Item className='toggler' key="2">
-              <Switch 
-                onChange={toggleTheme}
-                checkedChildren={theme === 'light' ? 'Light' : 'Dark'}
-                unCheckedChildren={theme === 'light' ? 'Light' : 'Dark'}
-              />
-            </Menu.Item>
-            <Menu.Item key="3"><Link to="/login">Login</Link></Menu.Item>
-          </Menu>
-        </Header>
-      )}
-    </ThemeContextConsumer>
+    <Header className={theme} style={{width: '100%'}}>
+      <Menu theme={theme} mode="horizontal" defaultSelectedKeys={['1']}>
+        <Menu.Item key="1" className='logo'>
+          <Link to="/">
+            <img src={logo} alt='logo' style={{height: '50px'}}/>
+          </Link>
+        </Menu.Item> 
+        <Menu.Item className='toggler' key="2">
+          <ThemeToggler />
+        </Menu.Item>
+        <Menu.Item key="4" className='menu-login'>
+          { isLoggedIn ? <Logout /> : <Login /> }
+        </Menu.Item>
+      </Menu>
+    </Header>
   )
 }
 

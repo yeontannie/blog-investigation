@@ -8,9 +8,9 @@ const UserSettingsProvider = ({children}) => {
     const userSettingsContextValue = useMemo(() => {
         return {
             ...state,
-            toggleTheme: (isChecked) => dispatch({type:'TOGGLE_THEME', payload:{isChecked:isChecked}}),
-            toggleLanguage: (language) => dispatch({type:'TOGGLE_LANGUAGE', payload:{language:language}}),
-            setIsLoggedIn: () => dispatch({type:"SET_IS_LOGGED_IN", payload:{isLoggedIn:state.isLoggedIn}})
+            toggleTheme: (isChecked) => dispatch({type:'TOGGLE_THEME', payload:{isChecked}}),
+            toggleLanguage: (language) => dispatch({type:'TOGGLE_LANGUAGE', payload:{language}}),
+            setIsLoggedIn: (isLoggedIn) => dispatch({type:"SET_IS_LOGGED_IN", payload:{isLoggedIn}})
         }
     }, [state, dispatch])
 

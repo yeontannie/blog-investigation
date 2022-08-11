@@ -20,6 +20,7 @@ code {
   background: #141414;
   position:relative;
   box-shadow: 0px 6px 12px 0 rgba(0, 0, 0, 0.95);
+  z-index: 1;
 }
 
 .ant-layout-header.light{
@@ -51,7 +52,9 @@ code {
 
 .ant-layout-content.dark, .ant-layout-content.light {
   padding: 40px 20px;
-  height: 89.9vh;
+  position: fixed;
+  height: 100%;
+  width: 100%;
 }
 
 .ant-layout-content.dark {

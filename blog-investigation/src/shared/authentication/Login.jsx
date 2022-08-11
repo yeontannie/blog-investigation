@@ -17,7 +17,7 @@ function Login() {
       <GoogleLogin 
         render={renderProps => (  
           <Button className='login-btn' onClick={renderProps.onClick} disabled={renderProps.disabled}>
-            <GoogleOutlined/> Login
+            <GoogleOutlined/> <span>Login</span>
           </Button>
         )}
         clientId={CLIENT_ID}

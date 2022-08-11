@@ -28,7 +28,7 @@ const userSettingsReducer = (state, action) => {
         case "SET_IS_LOGGED_IN":
         return {
             ...state,
-            isLoggedIn:!payload.isLoggedIn
+            isLoggedIn:payload.isLoggedIn
         }
 
         default:

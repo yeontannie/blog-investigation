@@ -4,7 +4,7 @@ export const useGapiAuth = () => {
     const {setIsLoggedIn} = useUserSettingsContext()
 
     const onSuccessLogin = (res) => {
-        setIsLoggedIn()
+        setIsLoggedIn(true)
         localStorage.setItem('token', res.accessToken)
     }
     
@@ -13,7 +13,7 @@ export const useGapiAuth = () => {
     }
     
     const onSuccessLogout = () => {
-        setIsLoggedIn()
+        setIsLoggedIn(false)
         localStorage.setItem('token', '')
     }
 

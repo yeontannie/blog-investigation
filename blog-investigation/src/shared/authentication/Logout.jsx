@@ -13,7 +13,7 @@ function Logout(){
             <GoogleLogout 
                 render={renderProps => (
                     <Button className='logout-btn' onClick={renderProps.onClick} disabled={renderProps.disabled}>
-                        <GoogleOutlined/> Logout
+                        <GoogleOutlined/> <span>Logout</span>
                     </Button>
                 )}
                 clientId={CLIENT_ID}

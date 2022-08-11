@@ -9,14 +9,14 @@ import Router from './shared/navigation/Router'
 function App() {  
   return (
     <div className="App">
-      <UserSettingsProvider>
-        <BrowserRouter>
+      <BrowserRouter>
+        <UserSettingsProvider>
           <Navbar />
           <SharedLayout>
             <Router />
           </SharedLayout>
-        </BrowserRouter>
-      </UserSettingsProvider>
+        </UserSettingsProvider>
+      </BrowserRouter>
     </div>
   );
 }

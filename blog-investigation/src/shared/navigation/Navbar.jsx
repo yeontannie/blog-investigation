@@ -1,9 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Layout, Menu } from 'antd'
+
 import logo from '../../assets/logo.png'
 import { useUserSettingsContext } from '../store/UserSettingsProvider'
-import ThemeToggler from '../components/ThemeToggler'
+
+import ThemeToggler from '../components/togglers/ThemeToggler'
+import LanguageToggler from '../components/togglers/LanguageToggler'
+
 import Login from '../authentication/Login'
 import Logout from '../authentication/Logout'
 
@@ -20,8 +24,11 @@ function Navbar() {
             <img src={logo} alt='logo' style={{height: '50px'}}/>
           </Link>
         </Menu.Item> 
-        <Menu.Item className='toggler' key="2">
+        <Menu.Item  key="2" className='toggler'>
           <ThemeToggler />
+        </Menu.Item>
+        <Menu.Item key="3" className='toggler'>
+          <LanguageToggler />
         </Menu.Item>
         <Menu.Item key="4" className='menu-login'>
           { isLoggedIn ? <Logout /> : <Login /> }

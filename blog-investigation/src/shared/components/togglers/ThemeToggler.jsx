@@ -1,6 +1,7 @@
 import React from 'react'
 import { Switch } from 'antd'
-import { useUserSettingsContext } from '../store/UserSettingsProvider'
+
+import { useUserSettingsContext } from '../../store/UserSettingsProvider'
 
 function ThemeToggler() {
   const {theme, toggleTheme} = useUserSettingsContext()

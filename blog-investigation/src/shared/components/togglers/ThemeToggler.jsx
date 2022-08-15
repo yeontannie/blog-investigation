@@ -2,6 +2,7 @@ import React from 'react'
 import { Switch } from 'antd'
 
 import { useUserSettingsContext } from '../../store/UserSettingsProvider'
+import Translator from '../Translator'
 
 function ThemeToggler() {
   const {theme, toggleTheme} = useUserSettingsContext()
@@ -10,8 +11,8 @@ function ThemeToggler() {
     <Switch 
       checked={theme === 'dark'}
       onChange={toggleTheme}
-      checkedChildren='Dark' 
-      unCheckedChildren='Light'
+      checkedChildren={<Translator text='Dark' />} 
+      unCheckedChildren={<Translator text='Light' />}
     />
   )
 }

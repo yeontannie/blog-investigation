@@ -7,6 +7,7 @@ import { useUserSettingsContext } from '../store/UserSettingsProvider'
 
 import ThemeToggler from '../components/togglers/ThemeToggler'
 import LanguageToggler from '../components/togglers/LanguageToggler'
+import Translator from '../components/Translator'
 
 import Login from '../authentication/Login'
 import Logout from '../authentication/Logout'
@@ -24,13 +25,18 @@ function Navbar() {
             <img src={logo} alt='logo' style={{height: '50px'}}/>
           </Link>
         </Menu.Item> 
-        <Menu.Item  key="2" className='toggler'>
+        <Menu.Item key="2" className='nav-blog'>
+          <Link to="/blogs">
+            <Translator text='Blogs' />
+          </Link>
+        </Menu.Item> 
+        <Menu.Item  key="3" className='toggler'>
           <ThemeToggler />
         </Menu.Item>
-        <Menu.Item key="3" className='toggler'>
+        <Menu.Item key="4" className='toggler'>
           <LanguageToggler />
         </Menu.Item>
-        <Menu.Item key="4" className='menu-login'>
+        <Menu.Item key="5" className='menu-login'>
           { isLoggedIn ? <Logout /> : <Login /> }
         </Menu.Item>
       </Menu>

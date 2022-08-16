@@ -3,23 +3,20 @@ import { Result } from "antd";
 import { useLocation } from "react-router-dom";
 
 import Translator from "./Translator";
-import PrimaryBtn from "./buttons/PrimaryBtn";
+import PrimaryButtonLink from "./buttons/PrimaryButtonLink";
 
 function Error() {
   const { state } = useLocation();
+  const { code, message } = state;
 
   return (
     <div className="error-page">
-      <Result style={{ padding: "0" }} status={state} />
-      <h1>{state}</h1>
+      <Result style={{ padding: "0" }} status={code} />
+      <h1>{code}</h1>
       <p>
-        {state === "403" ? (
-          <Translator text="Sorry, you are not authorized to access this page." />
-        ) : (
-          <Translator text="Sorry, the page you visited does not exist." />
-        )}
+        <Translator text={message} />
       </p>
-      <PrimaryBtn linkTo="/" btnText="Back Home" />
+      <PrimaryButtonLink linkTo="/" btnText="Back Home" />
     </div>
   );
 }

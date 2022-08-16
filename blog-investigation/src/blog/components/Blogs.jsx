@@ -9,7 +9,7 @@ function Blogs() {
 
   if (isLoading) {
     return <Spinner />;
-  } else {
+  } else if (blogs.length > 0) {
     return (
       <div className="blog-cards-list">
         {blogs.map((blog) => (
@@ -23,6 +23,7 @@ function Blogs() {
       </div>
     );
   }
+  return <h3 className="home-text">No data to display</h3>;
 }
 
 export default Blogs;

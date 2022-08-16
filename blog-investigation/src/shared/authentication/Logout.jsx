@@ -19,7 +19,7 @@ function Logout() {
             onClick={renderProps.onClick}
             disabled={renderProps.disabled}
           >
-            <GoogleOutlined />{" "}
+            <GoogleOutlined />
             <span>
               <Translator text="Logout" />
             </span>

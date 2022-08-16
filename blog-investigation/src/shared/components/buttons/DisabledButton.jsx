@@ -3,7 +3,7 @@ import { Button } from "antd";
 
 import Translator from "../Translator";
 
-function DisabledBtn({ btnText }) {
+function DisabledButton({ btnText }) {
   return (
     <Button disabled>
       <Translator text={btnText} />
@@ -11,4 +11,4 @@ function DisabledBtn({ btnText }) {
   );
 }
 
-export default DisabledBtn;
+export default DisabledButton;

@@ -4,7 +4,7 @@ import { GoogleOutlined } from "@ant-design/icons";
 import { GoogleLogin } from "react-google-login";
 
 import { CLIENT_ID } from "../../keys.env";
-import authService from "../services/authService";
+import AuthService from "../services/authService";
 import { useGapiAuth } from "../hooks/useGapiAuth";
 import Translator from "../components/Translator";
 
@@ -12,7 +12,7 @@ function Login() {
   const { onSuccessLogin, onFailureLogin } = useGapiAuth();
 
   useEffect(() => {
-    authService.initClient();
+    AuthService.initClient();
   }, []);
 
   return (
@@ -24,7 +24,7 @@ function Login() {
             onClick={renderProps.onClick}
             disabled={renderProps.disabled}
           >
-            <GoogleOutlined />{" "}
+            <GoogleOutlined />
             <span>
               <Translator text="Login" />
             </span>

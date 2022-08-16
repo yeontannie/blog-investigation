@@ -19,7 +19,18 @@ export default function Router() {
         <Route path=":postId" element={<Post />} />
       </Route>
       <Route path="/error" element={<Error />} />
-      <Route path="*" element={<Navigate to="/error" state={"404"} />} />
+      <Route
+        path="*"
+        element={
+          <Navigate
+            to="/error"
+            state={{
+              code: 404,
+              message: "Sorry, the page you visited does not exist.",
+            }}
+          />
+        }
+      />
     </Routes>
   );
 }

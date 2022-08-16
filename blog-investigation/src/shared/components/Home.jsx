@@ -19,10 +19,10 @@ function Home() {
         <Translator text="Login to your Blogger account with google first, you'll know what to do next :))" />
       </p>
       <div className="home-pics">
-        <img width={200} src={paint} alt="" />
-        <img width={200} src={sew} alt="" />
-        <img width={200} src={cook} alt="" />
-        <img width={200} src={travel} alt="" />
+        <img width={200} src={paint} alt="paints and canvas" />
+        <img width={200} src={sew} alt="a bunch threads" />
+        <img width={200} src={cook} alt="fooooood" />
+        <img width={200} src={travel} alt="a street in Venice" />
       </div>
     </div>
   );

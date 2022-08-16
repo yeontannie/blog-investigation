@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 
 import Translator from "../Translator";
 
-function PrimaryBtn({ linkTo, btnText }) {
+function PrimaryButtonLink({ linkTo, btnText }) {
   return (
-    <Button type="primary">
-      <Link to={linkTo}>
+    <Link to={linkTo}>
+      <Button type="primary">
         <Translator text={btnText} />
-      </Link>
-    </Button>
+      </Button>
+    </Link>
   );
 }
 
-export default PrimaryBtn;
+export default PrimaryButtonLink;

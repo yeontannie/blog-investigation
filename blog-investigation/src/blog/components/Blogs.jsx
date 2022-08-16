@@ -7,23 +7,26 @@ import BlogCard from "./BlogCard";
 function Blogs() {
   const { isLoading, blogs } = useGetBlogs();
 
-  if (isLoading) {
-    return <Spinner />;
-  } else if (blogs.length > 0) {
-    return (
-      <div className="blog-cards-list">
-        {blogs.map((blog) => (
-          <BlogCard
-            key={blog.id}
-            name={blog.name}
-            description={blog.description}
-            postsNum={blog.posts.totalItems}
-          />
-        ))}
-      </div>
-    );
-  }
-  return <h3 className="home-text">No data to display</h3>;
+  return (
+    <div>
+      {isLoading && <Spinner />}
+      {blogs.length > 0 && (
+        <div className="blog-cards-list">
+          {blogs.map((blog) => (
+            <BlogCard
+              key={blog.id}
+              name={blog.name}
+              description={blog.description}
+              postsNum={blog.posts.totalItems}
+            />
+          ))}
+        </div>
+      )}
+      {blogs.length === 0 && !isLoading && (
+        <h3 className="home-text">No data to display</h3>
+      )}
+    </div>
+  );
 }
 
 export default Blogs;

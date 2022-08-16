@@ -3,7 +3,6 @@ import BlogApiService from "../blogApiService";
 import { useNavigate } from "react-router-dom";
 
 export const useGetBlogs = () => {
-  const token = localStorage.getItem("token");
   const navigate = useNavigate();
 
   const [blogs, setBlogs] = useState([]);
@@ -11,7 +10,7 @@ export const useGetBlogs = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    BlogApiService.getBlogs(token)
+    BlogApiService.getBlogs()
       .then((response) => setBlogs(response.data.items))
       .catch((error) => {
         navigate("/error", {
@@ -22,7 +21,7 @@ export const useGetBlogs = () => {
         });
       })
       .finally(() => setIsLoading(false));
-  }, [token, navigate]);
+  }, [navigate]);
 
   return { blogs, isLoading };
 };

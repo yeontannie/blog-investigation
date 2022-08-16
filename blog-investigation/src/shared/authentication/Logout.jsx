@@ -19,8 +19,8 @@ function Logout() {
             onClick={renderProps.onClick}
             disabled={renderProps.disabled}
           >
-            <GoogleOutlined />
-            <span>
+            <GoogleOutlined style={{ color: "#141414" }} />
+            <span style={{ color: "#141414" }}>
               <Translator text="Logout" />
             </span>
           </Button>

@@ -1,7 +1,8 @@
 import React from "react";
 
-import Spinner from "../../shared/components/Spinner";
 import { useGetBlogs } from "../hooks/useGetBlogs";
+import Translator from "../../shared/components/Translator";
+import Spinner from "../../shared/components/Spinner";
 import BlogCard from "./BlogCard";
 
 function Blogs() {
@@ -23,7 +24,9 @@ function Blogs() {
         </div>
       )}
       {blogs.length === 0 && !isLoading && (
-        <h3 className="home-text">No data to display</h3>
+        <h3 className="home-text">
+          <Translator text="No data to display" />
+        </h3>
       )}
     </div>
   );

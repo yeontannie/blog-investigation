@@ -1,9 +1,8 @@
 import React from "react";
 import { Card } from "antd";
 
-import PrimaryButtonLink from "../../shared/components/buttons/PrimaryButtonLink";
+import ButtonLink from "../../shared/components/buttons/ButtonLink";
 import Translator from "../../shared/components/Translator";
-import DisabledButton from "../../shared/components/buttons/DisabledButton";
 
 function BlogCard(props) {
   return (
@@ -15,9 +14,16 @@ function BlogCard(props) {
         </p>
         <p>
           {props.postsNum > 0 ? (
-            <PrimaryButtonLink linkTo="/posts" btnText="SHOW" />
+            <ButtonLink
+              btnType="primary"
+              linkTo={`${props.id}/posts`}
+              btnText="SHOW"
+            />
           ) : (
-            <DisabledButton btnText="Nothing to look at" />
+            <ButtonLink
+              linkTo={`${props.id}/posts`}
+              btnText="Nothing to look at"
+            />
           )}
         </p>
       </div>

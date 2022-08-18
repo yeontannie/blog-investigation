@@ -3,7 +3,7 @@ import { Result } from "antd";
 import { useLocation } from "react-router-dom";
 
 import Translator from "./Translator";
-import PrimaryButtonLink from "./buttons/PrimaryButtonLink";
+import ButtonLink from "./buttons/ButtonLink";
 
 function Error() {
   const { state } = useLocation();
@@ -11,12 +11,12 @@ function Error() {
 
   return (
     <div className="error-page">
-      <Result style={{ padding: "0" }} status={code} />
+      <Result style={{ padding: "0" }} status="404" />
       <h1>{code}</h1>
       <p>
         <Translator text={message} />
       </p>
-      <PrimaryButtonLink linkTo="/" btnText="Back Home" />
+      <ButtonLink type="primary" linkTo="/" btnText="Back Home" />
     </div>
   );
 }

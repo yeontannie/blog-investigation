@@ -1,5 +1,6 @@
 import React from "react";
 
+import NoData from "../../shared/components/NoData";
 import Spinner from "../../shared/components/Spinner";
 import { useGetBlogs } from "../hooks/useGetBlogs";
 import BlogCard from "./BlogCard";
@@ -15,6 +16,7 @@ function Blogs() {
           {blogs.map((blog) => (
             <BlogCard
               key={blog.id}
+              id={blog.id}
               name={blog.name}
               description={blog.description}
               postsNum={blog.posts.totalItems}
@@ -22,9 +24,7 @@ function Blogs() {
           ))}
         </div>
       )}
-      {blogs.length === 0 && !isLoading && (
-        <h3 className="home-text">No data to display</h3>
-      )}
+      {blogs.length === 0 && !isLoading && <NoData />}
     </div>
   );
 }

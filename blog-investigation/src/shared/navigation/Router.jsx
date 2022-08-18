@@ -13,10 +13,10 @@ export default function Router() {
       <Route path="/" element={<Home />} />
       <Route path="/blogs" element={<Outlet />}>
         <Route index element={<Blogs />} />
-      </Route>
-      <Route path="/posts" element={<Outlet />}>
-        <Route index element={<Posts />} />
-        <Route path=":postId" element={<Post />} />
+        <Route path=":blogId/posts" element={<Outlet />}>
+          <Route index element={<Posts />} />
+          <Route path=":postId" element={<Post />} />
+        </Route>
       </Route>
       <Route path="/error" element={<Error />} />
       <Route

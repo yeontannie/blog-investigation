@@ -1,18 +1,18 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import BlogApiService from "../blogApiService";
+import PostApiService from "../postApiService";
 
-export const useGetBlogs = () => {
+export const useGetPosts = (blogId) => {
   const navigate = useNavigate();
 
-  const [blogs, setBlogs] = useState([]);
+  const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
-    BlogApiService.getBlogs()
-      .then((response) => response.data.items && setBlogs(response.data.items))
+    PostApiService.getPosts(blogId)
+      .then((response) => response.data.items && setPosts(response.data.items))
       .catch((error) => {
         navigate("/error", {
           state: {
@@ -22,7 +22,7 @@ export const useGetBlogs = () => {
         });
       })
       .finally(() => setIsLoading(false));
-  }, [navigate]);
+  }, [blogId, navigate]);
 
-  return { blogs, isLoading };
+  return { posts, isLoading };
 };

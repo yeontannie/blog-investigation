@@ -132,3 +132,56 @@ code {
   justify-content: space-around;
   padding-top: 30px;
 }
+
+.post-card-list {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 20px;
+  margin: 0 0 8px 0;
+  overflow: visible;
+  padding: 16px;
+  position: relative;
+  vertical-align: top;
+  width: 100%;
+}
+
+.ant-card.ant-card-bordered.post-card-dark,
+.ant-card.ant-card-bordered.post-card-light {
+  border: 1px solid #cfd8dc;
+  border-radius: 10px;
+}
+
+.ant-card.ant-card-bordered.post-card-dark > .ant-card-body,
+.ant-card.ant-card-bordered.post-card-light > .ant-card-body {
+  padding: 15px 25px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ant-card-meta.post-card-meta.post-card-meta {
+  cursor: pointer;
+}
+
+.post-card-dark:hover {
+  box-shadow: 0px 2px 8px rgba(255, 255, 255, 0.65);
+}
+
+.post-card-light:hover {
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.65);
+}
+
+.post-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 22px;
+  width: 60px;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.post-icon:active {
+  transform: scale(0.95);
+}

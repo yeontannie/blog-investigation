@@ -1,6 +1,6 @@
 import React from "react";
+import { Empty } from "antd";
 
-import NoData from "../../shared/components/NoData";
 import Spinner from "../../shared/components/Spinner";
 import { useGetBlogs } from "../hooks/useGetBlogs";
 import BlogCard from "./BlogCard";
@@ -24,7 +24,7 @@ function Blogs() {
           ))}
         </div>
       )}
-      {blogs.length === 0 && !isLoading && <NoData />}
+      {blogs.length === 0 && !isLoading && <Empty />}
     </div>
   );
 }

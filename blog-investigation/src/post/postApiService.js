@@ -11,4 +11,12 @@ export default class PostApiService {
       },
     });
   }
+
+  static getPost(blogId, postId) {
+    return axios.get(BASE_URL + blogId + `/posts/${postId}?key=${API_KEY}`, {
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+  }
 }

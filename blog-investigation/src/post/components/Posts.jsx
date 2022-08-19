@@ -1,9 +1,9 @@
 import React from "react";
+import { Empty } from "antd";
 import { useParams } from "react-router-dom";
 
 import { useGetPosts } from "../hooks/useGetPosts";
 import Spinner from "../../shared/components/Spinner";
-import NoData from "../../shared/components/NoData";
 import PostCard from "./PostCard";
 import CreatePostButton from "./CreatePostButton";
 
@@ -27,7 +27,7 @@ function Posts() {
           ))}
         </div>
       )}
-      {posts.length === 0 && !isLoading && <NoData />}
+      {posts.length === 0 && !isLoading && <Empty />}
     </div>
   );
 }

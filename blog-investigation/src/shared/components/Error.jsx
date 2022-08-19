@@ -16,7 +16,7 @@ function Error() {
       <p>
         <Translator text={message} />
       </p>
-      <ButtonLink type="primary" linkTo="/" btnText="Back Home" />
+      <ButtonLink btnType="primary" linkTo="/" btnText="Back Home" />
     </div>
   );
 }

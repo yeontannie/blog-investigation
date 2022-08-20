@@ -1,23 +1,22 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 
 import Translator from "../../shared/components/Translator";
+import { useUserSettingsContext } from "../../shared/store/UserSettingsProvider";
 
 function BackToPostsButton() {
-  const navigate = useNavigate();
-
-  const handleClick = (e) => {
-    e.preventDefault();
-    navigate(-1);
-  };
+  const { blogId } = useParams();
+  const { theme } = useUserSettingsContext();
 
   return (
-    <div className="back-to-posts">
-      <ArrowLeftOutlined style={{ marginRight: "8px" }} />
-      <span onClick={handleClick}>
-        <Translator text="Back to Posts" />
-      </span>
+    <div className={`back-to-posts-${theme}`}>
+      <Link to={`/blogs/${blogId}/posts`}>
+        <ArrowLeftOutlined style={{ marginRight: "8px" }} />
+        <span>
+          <Translator text="Back to Posts" />
+        </span>
+      </Link>
     </div>
   );
 }

@@ -66,7 +66,9 @@ code {
   color: whitesmoke;
 }
 
-.ant-layout-content.light {
+.ant-layout-content.light,
+.back-to-posts-light > a,
+.back-to-posts-light > a:hover {
   color: #141414;
 }
 
@@ -220,8 +222,15 @@ code {
   color: #141414;
 }
 
-.back-to-posts {
+.back-to-posts-light,
+.back-to-posts-dark {
   cursor: pointer;
   margin: 0 0 30px 0;
   font-size: 20px;
+  max-width: 200px;
+}
+
+.back-to-posts-dark > a,
+.back-to-posts-dark > a:hover {
+  color: whitesmoke;
 }

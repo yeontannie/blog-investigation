@@ -14,7 +14,6 @@ export const useGetPost = (blogId, postId) => {
     PostApiService.getPost(blogId, postId)
       .then((response) => setPost(response.data))
       .catch((error) => {
-        console.log(error);
         navigate("/error", {
           state: {
             code: error.response.data.error.code,

@@ -2,8 +2,8 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 
-import Translator from "../../shared/components/Translator";
-import { useUserSettingsContext } from "../../shared/store/UserSettingsProvider";
+import Translator from "../../../shared/components/Translator";
+import { useUserSettingsContext } from "../../../shared/store/UserSettingsProvider";
 
 function BackToPostsButton() {
   const { blogId } = useParams();

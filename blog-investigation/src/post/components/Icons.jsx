@@ -1,11 +1,12 @@
 import React from "react";
-import { EditFilled, DeleteFilled } from "@ant-design/icons";
+import { EditFilled } from "@ant-design/icons";
+import DeleteIcon from "./DeleteIcon";
 
-function Icons() {
+function Icons({ postId }) {
   return (
     <div className="post-icons">
       <EditFilled className="post-icon" />
-      <DeleteFilled className="post-icon" />
+      <DeleteIcon postId={postId} />
     </div>
   );
 }

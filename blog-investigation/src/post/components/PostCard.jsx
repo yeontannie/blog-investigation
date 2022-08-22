@@ -23,7 +23,7 @@ function PostCard(props) {
           description={<Translator text={published} />}
         />
       </Link>
-      {isLoggedIn && <Icons />}
+      {isLoggedIn && <Icons postId={props.id} />}
     </Card>
   );
 }

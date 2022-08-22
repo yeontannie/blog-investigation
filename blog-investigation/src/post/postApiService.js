@@ -19,4 +19,14 @@ export default class PostApiService {
       },
     });
   }
+
+  static deletePost(blogId, postId) {
+    const token = localStorage.getItem("token");
+    return axios.delete(BASE_URL + blogId + `/posts/${postId}?key=${API_KEY}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-type": "application/json",
+      },
+    });
+  }
 }

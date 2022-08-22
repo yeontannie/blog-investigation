@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "antd";
 import { PlusCircleOutlined } from "@ant-design/icons";
 
-import Translator from "../../shared/components/Translator";
+import Translator from "../../../shared/components/Translator";
 
 function CreatePostButton() {
   return (

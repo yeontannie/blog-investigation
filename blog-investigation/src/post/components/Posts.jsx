@@ -2,14 +2,17 @@ import React from "react";
 import { Empty } from "antd";
 import { useParams } from "react-router-dom";
 
-import { useGetPosts } from "../hooks/useGetPosts";
+import { usePostsContext } from "../store/PostsContextProvider";
 import Spinner from "../../shared/components/Spinner";
+import { useGetPosts } from "../hooks/useGetPosts";
+import CreatePostButton from "./buttons/CreatePostButton";
 import PostCard from "./PostCard";
-import CreatePostButton from "./CreatePostButton";
 
 function Posts() {
   const { blogId } = useParams();
-  const { isLoading, posts } = useGetPosts(blogId);
+
+  const { posts } = usePostsContext();
+  const { isLoading } = useGetPosts(blogId);
 
   return (
     <div>

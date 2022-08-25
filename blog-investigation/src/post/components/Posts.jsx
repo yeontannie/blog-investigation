@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { usePostsContext } from "../store/PostsContextProvider";
 import Spinner from "../../shared/components/Spinner";
 import { useGetPosts } from "../hooks/useGetPosts";
-import CreatePostButton from "./buttons/CreatePostButton";
+import ModalAddPost from "./modal/ModalAddPost";
 import PostCard from "./PostCard";
 
 function Posts() {
@@ -17,7 +17,7 @@ function Posts() {
   return (
     <div>
       {isLoading && <Spinner />}
-      {!isLoading && <CreatePostButton />}
+      {!isLoading && <ModalAddPost />}
       {posts.length > 0 && (
         <div className="post-card-list">
           {posts.map((post) => (

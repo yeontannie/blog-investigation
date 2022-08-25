@@ -19,7 +19,7 @@ function PostCard(props) {
       <Link to={`${props.id}`}>
         <Meta
           className="post-card-meta"
-          title={<Translator text={props.title} />}
+          title={<Translator text={props.title || "No Content"} />}
           description={<Translator text={published} />}
         />
       </Link>

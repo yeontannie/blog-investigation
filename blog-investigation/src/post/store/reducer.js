@@ -12,7 +12,7 @@ const postsReducer = (state, action) => {
       };
 
     case "CREATE_POST":
-      const addPost = state.posts.push(payload.newPost);
+      const addPost = state.posts.concat(payload.newPost);
 
       return {
         posts: addPost,

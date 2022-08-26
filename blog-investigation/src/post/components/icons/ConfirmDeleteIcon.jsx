@@ -4,17 +4,15 @@ import { useParams } from "react-router-dom";
 import { Popconfirm } from "antd";
 import { DeleteFilled } from "@ant-design/icons";
 
-import { useDeletePost } from "../hooks/useDeletePost";
+import Translator from "../../../shared/components/Translator";
+import { useDeletePost } from "../../hooks/useDeletePost";
+import { usePopconfirm } from "../../hooks/usePopconfirm";
 
-export default function DeleteIcon({ postId }) {
+export default function ConfirmDeleteIcon({ postId }) {
   const { blogId } = useParams();
-  const {
-    isConfirmLoading,
-    removePost,
-    isVisible,
-    showPopconfirm,
-    handleCancel,
-  } = useDeletePost();
+
+  const { isConfirmLoading, removePost } = useDeletePost();
+  const { isVisible, showPopconfirm, handleCancel } = usePopconfirm();
 
   const confirm = () => {
     removePost(blogId, postId);
@@ -22,13 +20,14 @@ export default function DeleteIcon({ postId }) {
 
   return (
     <Popconfirm
-      title="Are you sure to delete this post?"
+      title={<Translator text="Are you sure to delete this post?" />}
       visible={isVisible}
+      okText={<Translator text="Yes" />}
       onConfirm={confirm}
-      okText="Yes"
       okButtonProps={{
         loading: isConfirmLoading,
       }}
+      cancelText={<Translator text="Cancel" />}
       onCancel={handleCancel}
     >
       <DeleteFilled className="post-icon" onClick={showPopconfirm} />

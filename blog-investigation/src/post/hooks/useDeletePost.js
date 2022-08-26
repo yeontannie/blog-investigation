@@ -1,25 +1,15 @@
-import { message } from "antd";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { message } from "antd";
 
 import { usePostsContext } from "../store/PostsContextProvider";
 import PostApiService from "../postApiService";
 
 export const useDeletePost = () => {
   const navigate = useNavigate();
+
   const { deletePost } = usePostsContext();
-
-  const [isVisible, setIsVisible] = useState(false);
   const [isConfirmLoading, setIsConfirmLoading] = useState(false);
-
-  const showPopconfirm = () => {
-    setIsVisible(true);
-  };
-
-  const handleCancel = () => {
-    setIsVisible(false);
-    setIsConfirmLoading(false);
-  };
 
   const removePost = (blogId, postId) => {
     setIsConfirmLoading(true);
@@ -39,11 +29,5 @@ export const useDeletePost = () => {
       .finally(() => setIsConfirmLoading(false));
   };
 
-  return {
-    isConfirmLoading,
-    removePost,
-    isVisible,
-    showPopconfirm,
-    handleCancel,
-  };
+  return { isConfirmLoading, removePost };
 };

@@ -5,7 +5,7 @@ import moment from "moment";
 
 import { useUserSettingsContext } from "../../shared/store/UserSettingsProvider";
 import Translator from "../../shared/components/Translator";
-import Icons from "./Icons";
+import Icons from "../components/icons/Icons";
 
 const { Meta } = Card;
 
@@ -23,7 +23,7 @@ function PostCard(props) {
           description={<Translator text={published} />}
         />
       </Link>
-      {isLoggedIn && <Icons postId={props.id} />}
+      {isLoggedIn && <Icons post={props.post} />}
     </Card>
   );
 }

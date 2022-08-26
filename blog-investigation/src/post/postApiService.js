@@ -30,6 +30,20 @@ export default class PostApiService {
     });
   }
 
+  static updatePost(blogId, postId, model) {
+    const token = localStorage.getItem("token");
+    return axios.put(
+      BASE_URL + blogId + `/posts/${postId}?key=${API_KEY}`,
+      model,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-type": "application/json",
+        },
+      }
+    );
+  }
+
   static deletePost(blogId, postId) {
     const token = localStorage.getItem("token");
     return axios.delete(BASE_URL + blogId + `/posts/${postId}?key=${API_KEY}`, {

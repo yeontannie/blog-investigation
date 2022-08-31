@@ -12,25 +12,31 @@ export default function ConfirmDeleteIcon({ postId }) {
   const { blogId } = useParams();
 
   const { isConfirmLoading, removePost } = useDeletePost();
-  const { isVisible, showPopconfirm, handleCancel } = usePopconfirm();
+  const { isPopconfirmVisible, setIsPopconfirmVisible, showPopconfirm } =
+    usePopconfirm();
 
-  const confirm = () => {
+  const handleOk = () => {
     removePost(blogId, postId);
   };
 
+  const handleCancel = () => {
+    setIsPopconfirmVisible(false);
+  };
+
   return (
-    <Popconfirm
-      title={<Translator text="Are you sure to delete this post?" />}
-      visible={isVisible}
-      okText={<Translator text="Yes" />}
-      onConfirm={confirm}
-      okButtonProps={{
-        loading: isConfirmLoading,
-      }}
-      cancelText={<Translator text="Cancel" />}
-      onCancel={handleCancel}
-    >
+    <>
       <DeleteFilled className="post-icon" onClick={showPopconfirm} />
-    </Popconfirm>
+      <Popconfirm
+        title={<Translator text="Are you sure to delete this post?" />}
+        visible={isPopconfirmVisible}
+        okText={<Translator text="Yes" />}
+        onConfirm={handleOk}
+        okButtonProps={{
+          loading: isConfirmLoading,
+        }}
+        cancelText={<Translator text="Cancel" />}
+        onCancel={handleCancel}
+      />
+    </>
   );
 }

@@ -5,25 +5,34 @@ import moment from "moment";
 
 import { useUserSettingsContext } from "../../shared/store/UserSettingsProvider";
 import Translator from "../../shared/components/Translator";
-import Icons from "../components/icons/Icons";
+
+import EditPostIcon from "./icons/EditPostIcon";
+import DeletePostIcon from "./icons/DeletePostIcon";
 
 const { Meta } = Card;
 
 function PostCard(props) {
   const { theme, isLoggedIn } = useUserSettingsContext();
 
-  const published = moment(props.published.toString()).format("MMMM DD, YYYY");
+  const published = moment(props.post.published.toString()).format(
+    "MMMM DD, YYYY"
+  );
 
   return (
     <Card className={`post-card-${theme}`}>
-      <Link to={`${props.id}`}>
+      <Link to={`${props.post.id}`}>
         <Meta
           className="post-card-meta"
-          title={<Translator text={props.title || "No Content"} />}
+          title={<Translator text={props.post.title || "No Content"} />}
           description={<Translator text={published} />}
         />
       </Link>
-      {isLoggedIn && <Icons post={props.post} />}
+      {isLoggedIn && (
+        <div className="post-icons">
+          <EditPostIcon post={props.post} />
+          <DeletePostIcon postId={props.post.id} />
+        </div>
+      )}
     </Card>
   );
 }

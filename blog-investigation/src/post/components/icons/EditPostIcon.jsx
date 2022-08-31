@@ -1,28 +1,40 @@
-import React, { useState } from "react";
+import React from "react";
 import { EditFilled } from "@ant-design/icons";
 
-import { useModalUpdate } from "../../hooks/useModalUpdate";
-import ModalPost from "../modal/ModalPost";
+import { useModal } from "../../hooks/useModal";
+import PostModal from "../modal/PostModal";
 
 function EditPostIcon({ post }) {
-  const { showModal, isModalVisible, handleOk, handleCancel } =
-    useModalUpdate();
-
-  const [editedPost, setEditedPost] = useState(post);
+  const { isModalVisible, setIsModalVisible, showModal } = useModal();
 
   return (
     <>
       <EditFilled className="post-icon" onClick={showModal} />
-      <ModalPost
+      <PostModal
         title="Edit Post"
         isVisible={isModalVisible}
-        ok={() => handleOk(editedPost)}
-        cancel={handleCancel}
-        post={editedPost}
-        setPost={setEditedPost}
+        setIsVisible={setIsModalVisible}
+        post={post}
       />
     </>
   );
 }
 
 export default EditPostIcon;
+
+// ok={handleOk}
+// cancel={handleCancel}
+// post={editedPost}
+// setPost={setEditedPost}
+
+// const { editPost } = useUpdatePost();
+// const [editedPost, setEditedPost] = useState(post);
+
+// const handleCancel = () => {
+//   setIsModalVisible(false);
+// };
+
+// const handleOk = () => {
+//   setIsModalVisible(false);
+//   editPost(editedPost.blog.id, editedPost.id, editedPost);
+// };

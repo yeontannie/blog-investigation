@@ -1,15 +1,11 @@
 import { useState } from "react";
 
 export const usePopconfirm = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isPopconfirmVisible, setIsPopconfirmVisible] = useState(false);
 
   const showPopconfirm = () => {
-    setIsVisible(true);
+    setIsPopconfirmVisible(true);
   };
 
-  const handleCancel = () => {
-    setIsVisible(false);
-  };
-
-  return { isVisible, showPopconfirm, handleCancel };
+  return { isPopconfirmVisible, setIsPopconfirmVisible, showPopconfirm };
 };

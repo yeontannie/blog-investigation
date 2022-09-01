@@ -14,6 +14,11 @@ const { Meta } = Card;
 function PostCard(props) {
   const { theme, isLoggedIn } = useUserSettingsContext();
 
+  const title =
+    props.post.title.length > 30
+      ? props.post.title.slice(0, 30) + "..."
+      : props.post.title;
+
   const published = moment(props.post.published.toString()).format(
     "MMMM DD, YYYY"
   );
@@ -23,7 +28,7 @@ function PostCard(props) {
       <Link to={`${props.post.id}`}>
         <Meta
           className="post-card-meta"
-          title={<Translator text={props.post.title || "No Content"} />}
+          title={<Translator text={title || "No Content"} />}
           description={<Translator text={published} />}
         />
       </Link>

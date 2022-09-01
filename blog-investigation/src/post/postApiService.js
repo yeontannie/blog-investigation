@@ -3,54 +3,33 @@ import { API_KEY } from "../keys.env";
 
 const BASE_URL = "https://www.googleapis.com/blogger/v3/blogs/";
 
+axios.interceptors.request.use((config) => {
+  config.headers["Authorization"] = `Bearer ${localStorage.getItem("token")}`;
+  config.headers["Content-type"] = "application/json";
+  return config;
+});
+
 export default class PostApiService {
   static getPosts(blogId) {
-    return axios.get(BASE_URL + blogId + `/posts?key=${API_KEY}`, {
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
+    return axios.get(BASE_URL + blogId + `/posts?key=${API_KEY}`);
   }
 
   static getPost(blogId, postId) {
-    return axios.get(BASE_URL + blogId + `/posts/${postId}?key=${API_KEY}`, {
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
+    return axios.get(BASE_URL + blogId + `/posts/${postId}?key=${API_KEY}`);
   }
 
   static createPost(blogId, model) {
-    const token = localStorage.getItem("token");
-    return axios.post(BASE_URL + blogId + `/posts?key=${API_KEY}`, model, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-type": "application/json",
-      },
-    });
+    return axios.post(BASE_URL + blogId + `/posts?key=${API_KEY}`, model);
   }
 
   static updatePost(blogId, postId, model) {
-    const token = localStorage.getItem("token");
     return axios.put(
       BASE_URL + blogId + `/posts/${postId}?key=${API_KEY}`,
-      model,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-type": "application/json",
-        },
-      }
+      model
     );
   }
 
   static deletePost(blogId, postId) {
-    const token = localStorage.getItem("token");
-    return axios.delete(BASE_URL + blogId + `/posts/${postId}?key=${API_KEY}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-type": "application/json",
-      },
-    });
+    return axios.delete(BASE_URL + blogId + `/posts/${postId}?key=${API_KEY}`);
   }
 }

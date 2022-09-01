@@ -207,6 +207,7 @@ code {
 .single-post-title {
   font: bold 22px Roboto, sans-serif;
   margin-bottom: 8px;
+  word-wrap: break-word;
 }
 
 .single-post-date {

@@ -235,3 +235,22 @@ code {
 .back-to-posts-dark > a:hover {
   color: whitesmoke;
 }
+
+.ant-drawer-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-name {
+  font-size: large;
+  margin: 20px 0 10px 0;
+  font-weight: 500;
+}
+
+.user-email {
+  font-size: medium;
+  margin-bottom: 20px;
+  font-weight: 400;
+}

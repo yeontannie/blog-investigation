@@ -3,9 +3,9 @@ import { useState } from "react";
 export const usePopconfirm = () => {
   const [isPopconfirmVisible, setIsPopconfirmVisible] = useState(false);
 
-  const showPopconfirm = () => {
-    setIsPopconfirmVisible(true);
+  const togglePopconfirm = () => {
+    setIsPopconfirmVisible((prev) => !prev);
   };
 
-  return { isPopconfirmVisible, setIsPopconfirmVisible, showPopconfirm };
+  return { isPopconfirmVisible, togglePopconfirm };
 };

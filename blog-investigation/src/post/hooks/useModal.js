@@ -3,9 +3,9 @@ import { useState } from "react";
 export const useModal = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  const showModal = () => {
-    setIsModalVisible(true);
+  const toggleModal = () => {
+    setIsModalVisible((prev) => !prev);
   };
 
-  return { isModalVisible, setIsModalVisible, showModal };
+  return { isModalVisible, toggleModal };
 };

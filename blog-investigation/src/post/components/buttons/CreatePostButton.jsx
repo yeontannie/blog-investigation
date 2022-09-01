@@ -8,7 +8,7 @@ import { useModal } from "../../hooks/useModal";
 import PostModal from "../modal/PostModal";
 
 function CreatePostButton() {
-  const { isModalVisible, setIsModalVisible, showModal } = useModal();
+  const { isModalVisible, toggleModal } = useModal();
 
   return (
     <>
@@ -16,7 +16,7 @@ function CreatePostButton() {
         type="primary"
         size="large"
         shape="round"
-        onClick={showModal}
+        onClick={toggleModal}
         style={{ marginLeft: "16px" }}
       >
         <PlusCircleOutlined />
@@ -27,7 +27,7 @@ function CreatePostButton() {
       <PostModal
         title="Create Post"
         isVisible={isModalVisible}
-        setIsVisible={setIsModalVisible}
+        toggleModal={toggleModal}
         post={{
           title: "",
           content: "",

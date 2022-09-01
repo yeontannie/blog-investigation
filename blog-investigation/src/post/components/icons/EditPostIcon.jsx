@@ -5,15 +5,15 @@ import { useModal } from "../../hooks/useModal";
 import PostModal from "../modal/PostModal";
 
 function EditPostIcon({ post }) {
-  const { isModalVisible, setIsModalVisible, showModal } = useModal();
+  const { isModalVisible, toggleModal } = useModal();
 
   return (
     <>
-      <EditFilled className="post-icon" onClick={showModal} />
+      <EditFilled className="post-icon" onClick={toggleModal} />
       <PostModal
         title="Edit Post"
         isVisible={isModalVisible}
-        setIsVisible={setIsModalVisible}
+        toggleModal={toggleModal}
         post={post}
       />
     </>

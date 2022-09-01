@@ -18,11 +18,11 @@ function PostModal(props) {
   const [post, setPost] = useState(props.post);
 
   const handleCancel = () => {
-    props.setIsVisible(false);
+    props.toggleModal();
   };
 
   const handleOk = () => {
-    props.setIsVisible(false);
+    props.toggleModal();
 
     const model = {
       kind: "blogger#post",

@@ -1,0 +1,23 @@
+import React from "react";
+import { EditFilled } from "@ant-design/icons";
+
+import { useModal } from "../../hooks/useModal";
+import PostModal from "../modal/PostModal";
+
+function EditPostIcon({ post }) {
+  const { isModalVisible, toggleModal } = useModal();
+
+  return (
+    <>
+      <EditFilled className="post-icon" onClick={toggleModal} />
+      <PostModal
+        title="Edit Post"
+        isVisible={isModalVisible}
+        toggleModal={toggleModal}
+        post={post}
+      />
+    </>
+  );
+}
+
+export default EditPostIcon;

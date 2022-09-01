@@ -3,9 +3,10 @@ import React from "react";
 
 import Home from "../components/Home";
 import Error from "../components/Error";
+import Blogs from "../../blog/components/Blogs";
 import Posts from "../../post/components/Posts";
 import Post from "../../post/components/Post";
-import Blogs from "../../blog/components/Blogs";
+import PostsContextProvider from "../../post/store/PostsContextProvider";
 
 export default function Router() {
   return (
@@ -14,7 +15,14 @@ export default function Router() {
       <Route path="/blogs" element={<Outlet />}>
         <Route index element={<Blogs />} />
         <Route path=":blogId/posts" element={<Outlet />}>
-          <Route index element={<Posts />} />
+          <Route
+            index
+            element={
+              <PostsContextProvider>
+                <Posts />
+              </PostsContextProvider>
+            }
+          />
           <Route path=":postId" element={<Post />} />
         </Route>
       </Route>

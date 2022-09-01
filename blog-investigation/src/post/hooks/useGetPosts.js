@@ -2,17 +2,21 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import PostApiService from "../postApiService";
+import { usePostsContext } from "../store/PostsContextProvider";
 
 export const useGetPosts = (blogId) => {
   const navigate = useNavigate();
 
-  const [posts, setPosts] = useState([]);
+  const { setAllPosts } = usePostsContext();
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
+    setAllPosts([]);
     PostApiService.getPosts(blogId)
-      .then((response) => response.data.items && setPosts(response.data.items))
+      .then((response) => {
+        response.data.items && setAllPosts(response.data.items);
+      })
       .catch((error) => {
         navigate("/error", {
           state: {
@@ -24,5 +28,5 @@ export const useGetPosts = (blogId) => {
       .finally(() => setIsLoading(false));
   }, [blogId, navigate]);
 
-  return { posts, isLoading };
+  return { isLoading };
 };

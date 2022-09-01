@@ -4,11 +4,11 @@ import moment from "moment";
 import { useParams } from "react-router-dom";
 import { Markup } from "interweave";
 
-import { useGetPost } from "../hooks/useGetPost";
+import { useUserSettingsContext } from "../../shared/store/UserSettingsProvider";
 import Translator from "../../shared/components/Translator";
 import Spinner from "../../shared/components/Spinner";
-import { useUserSettingsContext } from "../../shared/store/UserSettingsProvider";
-import BackToPostsButton from "./BackToPostsButton";
+import { useGetPost } from "../hooks/useGetPost";
+import BackToPostsButton from "./buttons/BackToPostsButton";
 
 function Post() {
   const { blogId, postId } = useParams();

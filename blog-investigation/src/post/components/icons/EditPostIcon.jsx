@@ -21,20 +21,3 @@ function EditPostIcon({ post }) {
 }
 
 export default EditPostIcon;
-
-// ok={handleOk}
-// cancel={handleCancel}
-// post={editedPost}
-// setPost={setEditedPost}
-
-// const { editPost } = useUpdatePost();
-// const [editedPost, setEditedPost] = useState(post);
-
-// const handleCancel = () => {
-//   setIsModalVisible(false);
-// };
-
-// const handleOk = () => {
-//   setIsModalVisible(false);
-//   editPost(editedPost.blog.id, editedPost.id, editedPost);
-// };

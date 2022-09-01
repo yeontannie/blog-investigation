@@ -38,33 +38,3 @@ function CreatePostButton() {
 }
 
 export default CreatePostButton;
-
-// ok={handleOk}
-// cancel={handleCancel}
-// post={newPost}
-// setPost={setNewPost}
-
-// const [newPost, setNewPost] = useState({
-//   title: "",
-//   content: "",
-// }); //diff
-
-// const handleCancel = () => { //same
-//   setIsModalVisible(false);
-//   setNewPost({ title: "", content: "" }); //add
-// };
-
-// const handleOk = () => {
-//   setIsModalVisible(false); //same
-//   const model = {
-//     kind: "blogger#post",
-//     blog: {
-//       id: blogId,
-//     },
-//     title: newPost.title,
-//     content: newPost.content,
-//   };
-
-//   addPost(blogId, model); //different methods
-//   setNewPost({ title: "", content: "" });
-// };

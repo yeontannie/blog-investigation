@@ -5,13 +5,13 @@ import { Popconfirm } from "antd";
 import { DeleteFilled } from "@ant-design/icons";
 
 import Translator from "../../../shared/components/Translator";
+import { usePopconfirm } from "../../../shared/hooks/usePopconfirm";
 import { useDeletePost } from "../../hooks/useDeletePost";
-import { usePopconfirm } from "../../hooks/usePopconfirm";
 
 export default function ConfirmDeleteIcon({ postId }) {
   const { blogId } = useParams();
 
-  const { isConfirmLoading, removePost } = useDeletePost();
+  const { isLoading, removePost } = useDeletePost();
   const { isPopconfirmVisible, togglePopconfirm } = usePopconfirm();
 
   const handleOk = () => {
@@ -31,7 +31,7 @@ export default function ConfirmDeleteIcon({ postId }) {
         okText={<Translator text="Yes" />}
         onConfirm={handleOk}
         okButtonProps={{
-          loading: isConfirmLoading,
+          loading: isLoading,
         }}
         cancelText={<Translator text="Cancel" />}
         onCancel={handleCancel}

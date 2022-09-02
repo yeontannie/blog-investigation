@@ -4,7 +4,7 @@ import { Button } from "antd";
 import { PlusCircleOutlined } from "@ant-design/icons";
 
 import Translator from "../../../shared/components/Translator";
-import { useModal } from "../../hooks/useModal";
+import { useModal } from "../../../shared/hooks/useModal";
 import PostModal from "../modal/PostModal";
 
 function CreatePostButton() {

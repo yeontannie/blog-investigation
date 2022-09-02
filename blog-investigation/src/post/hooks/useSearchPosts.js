@@ -1,17 +1,18 @@
-import PostApiService from "../postApiService";
 import { useParams, useNavigate } from "react-router-dom";
-import { useState } from "react";
+
+import { useLoading } from "../../shared/hooks/useLoading";
 import { usePostsContext } from "../store/PostsContextProvider";
+import PostApiService from "../postApiService";
 
 export const useSearchPosts = () => {
   const navigate = useNavigate();
   const { blogId } = useParams();
 
   const { setAllPosts } = usePostsContext();
-  const [isLoading, setIsLoading] = useState(false);
+  const { isLoading, toggleLoading } = useLoading();
 
   const onSearch = (searchText) => {
-    setIsLoading(true);
+    toggleLoading();
     PostApiService.searchPosts(blogId, searchText)
       .then((response) => {
         response.data.items
@@ -26,7 +27,7 @@ export const useSearchPosts = () => {
           },
         });
       })
-      .finally(() => setIsLoading(false));
+      .finally(() => toggleLoading());
   };
 
   return { isLoading, onSearch };

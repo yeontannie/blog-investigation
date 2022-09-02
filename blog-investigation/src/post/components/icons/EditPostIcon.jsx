@@ -1,7 +1,7 @@
 import React from "react";
 import { EditFilled } from "@ant-design/icons";
 
-import { useModal } from "../../hooks/useModal";
+import { useModal } from "../../../shared/hooks/useModal";
 import PostModal from "../modal/PostModal";
 
 function EditPostIcon({ post }) {

@@ -7,7 +7,7 @@ import Spinner from "../../shared/components/Spinner";
 import { useGetPosts } from "../hooks/useGetPosts";
 import CreatePostButton from "./buttons/CreatePostButton";
 import PostCard from "./PostCard";
-import SearchInput from "./SearchInput";
+import SearchPostsInput from "./SearchPostsInput";
 
 function Posts() {
   const { blogId } = useParams();
@@ -21,7 +21,7 @@ function Posts() {
       {!isLoading && (
         <div className="posts-header">
           <CreatePostButton />
-          <SearchInput />
+          <SearchPostsInput />
         </div>
       )}
       {posts.length === 0 && !isLoading && <Empty className="empty" />}

@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { useLoading } from "../../shared/hooks/useLoading";
 import PostApiService from "../postApiService";
 
 export const useGetPost = (blogId, postId) => {
   const navigate = useNavigate();
 
+  const { isLoading, toggleLoading } = useLoading();
   const [post, setPost] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true);
+    toggleLoading();
     PostApiService.getPost(blogId, postId)
       .then((response) => setPost(response.data))
       .catch((error) => {
@@ -21,7 +22,7 @@ export const useGetPost = (blogId, postId) => {
           },
         });
       })
-      .finally(() => setIsLoading(false));
+      .finally(() => toggleLoading);
   }, [blogId, postId, navigate]);
 
   return { post, isLoading };

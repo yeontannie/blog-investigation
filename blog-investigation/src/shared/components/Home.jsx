@@ -1,4 +1,5 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 import Translator from "./Translator";
 import paint from "../../assets/paint.png";
@@ -19,10 +20,10 @@ function Home() {
         <Translator text="Login to your Blogger account with google first, you'll know what to do next :))" />
       </p>
       <div className="home-pics">
-        <img width={200} src={paint} alt="paints and canvas" />
-        <img width={200} src={sew} alt="a bunch threads" />
-        <img width={200} src={cook} alt="fooooood" />
-        <img width={200} src={travel} alt="a street in Venice" />
+        <LazyLoadImage src={paint} width={200} alt="paints and canvas" />
+        <LazyLoadImage src={sew} width={200} alt="a bunch threads" />
+        <LazyLoadImage src={cook} width={200} alt="fooooood" />
+        <LazyLoadImage src={travel} width={200} alt="a street in Venice" />
       </div>
     </div>
   );

@@ -9,20 +9,20 @@ import { useParams } from "react-router-dom";
 import { useCreatePost } from "../../hooks/useCreatePost";
 import { useUpdatePost } from "../../hooks/useUpdatePost";
 
-function PostModal(props) {
+function PostModal({ isCreate, isVisible, toggleModal, currentPost }) {
   const { blogId } = useParams();
 
   const { addPost } = useCreatePost();
   const { editPost } = useUpdatePost();
 
-  const [post, setPost] = useState(props.post);
+  const [post, setPost] = useState(currentPost);
 
   const handleCancel = () => {
-    props.toggleModal();
+    toggleModal();
   };
 
   const handleOk = () => {
-    props.toggleModal();
+    toggleModal();
 
     const model = {
       kind: "blogger#post",
@@ -33,18 +33,15 @@ function PostModal(props) {
       content: post.content,
     };
 
-    props.title === "Create Post"
-      ? addPost(blogId, model)
-      : editPost(post.blog.id, post.id, post);
-
-    props.title === "Create Post" && setPost({ title: "", content: "" });
+    isCreate ? addPost(blogId, model) : editPost(post.blog.id, post.id, post);
+    isCreate && setPost({ title: "", content: "" });
   };
 
   return (
     <Modal
       width={600}
-      visible={props.isVisible}
-      title={<Translator text={props.title} />}
+      visible={isVisible}
+      title={<Translator text={isCreate ? "Create Post" : "Edit Post"} />}
       okText={<Translator text="Save" />}
       cancelText={<Translator text="Cancel" />}
       onOk={handleOk}

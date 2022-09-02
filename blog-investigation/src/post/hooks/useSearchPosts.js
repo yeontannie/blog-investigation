@@ -1,22 +1,23 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import { useLoading } from "../../shared/hooks/useLoading";
 import { usePostsContext } from "../store/PostsContextProvider";
 import PostApiService from "../postApiService";
 
-export const useGetPosts = (blogId) => {
+export const useSearchPosts = () => {
   const navigate = useNavigate();
+  const { blogId } = useParams();
 
   const { setAllPosts } = usePostsContext();
   const { isLoading, toggleLoading } = useLoading();
 
-  useEffect(() => {
+  const onSearch = (searchText) => {
     toggleLoading();
-    setAllPosts([]);
-    PostApiService.getPosts(blogId)
+    PostApiService.searchPosts(blogId, searchText)
       .then((response) => {
-        response.data.items && setAllPosts(response.data.items);
+        response.data.items
+          ? setAllPosts(response.data.items)
+          : setAllPosts([]);
       })
       .catch((error) => {
         navigate("/error", {
@@ -27,7 +28,7 @@ export const useGetPosts = (blogId) => {
         });
       })
       .finally(() => toggleLoading());
-  }, [blogId, navigate]);
+  };
 
-  return { isLoading };
+  return { isLoading, onSearch };
 };

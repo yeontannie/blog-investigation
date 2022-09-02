@@ -20,9 +20,10 @@ function Navbar() {
   return (
     <Header className={theme} style={{ width: "100%" }}>
       <Menu theme={theme} mode="horizontal" defaultSelectedKeys={["1"]}>
-        <Menu.Item key="1" className="logo">
+        <img src={logo} alt="logo" className="logo" />
+        <Menu.Item key="1">
           <Link to="/">
-            <img src={logo} alt="logo" style={{ height: "50px" }} />
+            <Translator text="Home" />
           </Link>
         </Menu.Item>
         <Menu.Item key="2" className="nav-blog">

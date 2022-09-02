@@ -1,7 +1,7 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { message } from "antd";
 
+import { useLoading } from "../../shared/hooks/useLoading";
 import { usePostsContext } from "../store/PostsContextProvider";
 import PostApiService from "../postApiService";
 
@@ -9,10 +9,10 @@ export const useDeletePost = () => {
   const navigate = useNavigate();
 
   const { deletePost } = usePostsContext();
-  const [isConfirmLoading, setIsConfirmLoading] = useState(false);
+  const { isLoading, toggleLoading } = useLoading();
 
   const removePost = (blogId, postId) => {
-    setIsConfirmLoading(true);
+    toggleLoading();
     PostApiService.deletePost(blogId, postId)
       .then(() => {
         deletePost(postId);
@@ -26,8 +26,8 @@ export const useDeletePost = () => {
           },
         });
       })
-      .finally(() => setIsConfirmLoading(false));
+      .finally(() => toggleLoading);
   };
 
-  return { isConfirmLoading, removePost };
+  return { isLoading, removePost };
 };

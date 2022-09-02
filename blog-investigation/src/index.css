@@ -33,16 +33,16 @@ code {
 }
 
 .ant-menu-overflow-item.ant-menu-item.ant-menu-item-selected.ant-menu-item-only-child.toggler,
-.ant-menu-overflow-item.ant-menu-item.ant-menu-item-selected.ant-menu-item-only-child.logo,
 .ant-menu-overflow-item.ant-menu-item.ant-menu-item-selected.ant-menu-item-only-child.menu-login,
 .ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.toggler:hover,
-.ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.logo:hover,
 .ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.menu-login:hover {
   background-color: transparent;
 }
 
-.ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.logo {
+.logo {
+  height: 50px;
   margin-left: 50px;
+  align-self: center;
 }
 
 .ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.nav-blog {

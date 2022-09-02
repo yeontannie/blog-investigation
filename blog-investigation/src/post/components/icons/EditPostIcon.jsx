@@ -11,10 +11,10 @@ function EditPostIcon({ post }) {
     <>
       <EditFilled className="post-icon" onClick={toggleModal} />
       <PostModal
-        title="Edit Post"
+        isCreate={false}
         isVisible={isModalVisible}
         toggleModal={toggleModal}
-        post={post}
+        currentPost={post}
       />
     </>
   );

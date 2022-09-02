@@ -17,7 +17,7 @@ function CreatePostButton() {
         size="large"
         shape="round"
         onClick={toggleModal}
-        style={{ marginLeft: "16px" }}
+        style={{ margin: "0 16px" }}
       >
         <PlusCircleOutlined />
         <span>
@@ -25,10 +25,10 @@ function CreatePostButton() {
         </span>
       </Button>
       <PostModal
-        title="Create Post"
+        isCreate={true}
         isVisible={isModalVisible}
         toggleModal={toggleModal}
-        post={{
+        currentPost={{
           title: "",
           content: "",
         }}

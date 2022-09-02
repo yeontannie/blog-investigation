@@ -32,4 +32,10 @@ export default class PostApiService {
   static deletePost(blogId, postId) {
     return axios.delete(BASE_URL + blogId + `/posts/${postId}?key=${API_KEY}`);
   }
+
+  static searchPosts(blogId, searchText) {
+    return axios.get(
+      BASE_URL + blogId + `/posts/search?q=${searchText}&key=${API_KEY}`
+    );
+  }
 }

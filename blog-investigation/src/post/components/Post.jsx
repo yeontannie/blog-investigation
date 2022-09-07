@@ -7,6 +7,7 @@ import { Markup } from "interweave";
 import { useUserSettingsContext } from "../../shared/store/UserSettingsProvider";
 import Translator from "../../shared/components/Translator";
 import Spinner from "../../shared/components/Spinner";
+
 import { useGetPost } from "../hooks/useGetPost";
 import BackToPostsButton from "./buttons/BackToPostsButton";
 
@@ -18,23 +19,24 @@ function Post() {
 
   return (
     <div>
-      {isLoading && <Spinner />}
-      {!isLoading && <BackToPostsButton />}
-      {!isLoading && post && (
-        <Card className={`single-post-card-${theme}`}>
-          <h3 className="single-post-title" style={{ color: "#212121" }}>
-            <Translator text={post.title} />
-          </h3>
-          <span className="single-post-date">
-            <Translator
-              text={moment(post.published.toString()).format("MMMM DD, YYYY")}
-            />
-          </span>
-          <p className="single-post-content">
-            <Markup content={post.content} />
-          </p>
-        </Card>
-      )}
+      <Spinner isLoading={isLoading}>
+        <BackToPostsButton />
+        {post && (
+          <Card className={`single-post-card-${theme}`}>
+            <h3 className="single-post-title" style={{ color: "#212121" }}>
+              <Translator text={post.title} />
+            </h3>
+            <span className="single-post-date">
+              <Translator
+                text={moment(post.published.toString()).format("MMMM DD, YYYY")}
+              />
+            </span>
+            <p className="single-post-content">
+              <Markup content={post.content} />
+            </p>
+          </Card>
+        )}
+      </Spinner>
     </div>
   );
 }

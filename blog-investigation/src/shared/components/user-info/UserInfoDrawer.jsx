@@ -1,8 +1,8 @@
 import React from "react";
 import { Avatar, Drawer } from "antd";
 
-import Logout from "../authentication/Logout";
-import { useUserSettingsContext } from "../store/UserSettingsProvider";
+import Logout from "../../authentication/Logout";
+import { useUserSettingsContext } from "../../store/UserSettingsProvider";
 
 export default function UserInfoDrawer({ visible, onClose }) {
   const { theme } = useUserSettingsContext();

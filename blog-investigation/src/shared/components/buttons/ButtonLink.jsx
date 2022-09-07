@@ -4,9 +4,13 @@ import { Link } from "react-router-dom";
 
 import Translator from "../Translator";
 
-function ButtonLink({ btnType, linkTo, btnText }) {
+function ButtonLink({ btnType, linkTo, btnText, num }) {
+  const saveNum = () => {
+    localStorage.setItem("postsNum", JSON.stringify(num));
+  };
+
   return (
-    <Link to={linkTo}>
+    <Link to={linkTo} onClick={saveNum}>
       <Button type={btnType}>
         <Translator text={btnText} />
       </Button>

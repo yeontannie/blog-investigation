@@ -10,7 +10,7 @@ import LanguageToggler from "../components/togglers/LanguageToggler";
 import Translator from "../components/Translator";
 
 import Login from "../authentication/Login";
-import UserAvatar from "../components/UserAvatar";
+import UserAvatar from "../components/user-info/UserAvatar";
 
 const { Header } = Layout;
 
@@ -20,7 +20,7 @@ function Navbar() {
   return (
     <Header className={theme} style={{ width: "100%" }}>
       <Menu theme={theme} mode="horizontal" defaultSelectedKeys={["1"]}>
-        <img src={logo} alt="logo" className="logo" />
+        <img key="6" src={logo} alt="logo" className="logo" />
         <Menu.Item key="1">
           <Link to="/">
             <Translator text="Home" />

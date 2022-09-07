@@ -1,22 +1,25 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import { useLoading } from "../../shared/hooks/useLoading";
 import { usePostsContext } from "../store/PostsContextProvider";
 import PostApiService from "../postApiService";
 
-export const useGetPosts = (blogId) => {
+export const useGetNextPage = () => {
   const navigate = useNavigate();
+  const { blogId } = useParams();
 
-  const { setAllPosts, setToken } = usePostsContext();
+  const { posts, setAllPosts, setToken } = usePostsContext();
   const { isLoading, toggleLoading } = useLoading();
 
-  useEffect(() => {
+  const concatPosts = (nextPagePosts) => {
+    setAllPosts(posts.concat(nextPagePosts));
+  };
+
+  const getNextPage = (token) => {
     toggleLoading();
-    setAllPosts([]);
-    PostApiService.getPosts(blogId)
+    PostApiService.getNextPage(blogId, token)
       .then((response) => {
-        response.data.items && setAllPosts(response.data.items);
+        response.data.items && concatPosts(response.data.items);
         response.data.nextPageToken && setToken(response.data.nextPageToken);
       })
       .catch((error) => {
@@ -28,7 +31,7 @@ export const useGetPosts = (blogId) => {
         });
       })
       .finally(() => toggleLoading());
-  }, [blogId, navigate]);
+  };
 
-  return { isLoading };
+  return { getNextPage, isLoading };
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import { Avatar } from "antd";
 
-import { useDrawer } from "../hooks/useDrawer";
+import { useDrawer } from "../../hooks/useDrawer";
 import UserInfoDrawer from "./UserInfoDrawer";
 
 export default function UserAvatar() {

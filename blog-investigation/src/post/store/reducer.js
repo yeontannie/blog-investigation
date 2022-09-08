@@ -1,5 +1,6 @@
 export const postsInitialState = {
   posts: [],
+  nextPageToken: "",
 };
 
 const postsReducer = (state, action) => {
@@ -8,13 +9,21 @@ const postsReducer = (state, action) => {
   switch (type) {
     case "SET_ALL_POSTS":
       return {
+        ...state,
         posts: payload.posts,
+      };
+
+    case "SET_TOKEN":
+      return {
+        ...state,
+        nextPageToken: payload.token,
       };
 
     case "CREATE_POST":
       const addPost = state.posts.concat(payload.newPost);
 
       return {
+        ...state,
         posts: addPost,
       };
 
@@ -24,6 +33,7 @@ const postsReducer = (state, action) => {
       );
 
       return {
+        ...state,
         posts: updatePosts,
       };
 
@@ -33,6 +43,7 @@ const postsReducer = (state, action) => {
       );
 
       return {
+        ...state,
         posts: deletePost,
       };
 

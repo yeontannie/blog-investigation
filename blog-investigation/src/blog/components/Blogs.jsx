@@ -10,21 +10,22 @@ function Blogs() {
 
   return (
     <div>
-      {isLoading && <Spinner />}
-      {blogs.length > 0 && (
-        <div className="blog-cards-list">
-          {blogs.map((blog) => (
-            <BlogCard
-              key={blog.id}
-              id={blog.id}
-              name={blog.name}
-              description={blog.description}
-              postsNum={blog.posts.totalItems}
-            />
-          ))}
-        </div>
-      )}
-      {blogs.length === 0 && !isLoading && <Empty />}
+      <Spinner isLoading={isLoading}>
+        {blogs.length > 0 && (
+          <div className="blog-cards-list">
+            {blogs.map((blog) => (
+              <BlogCard
+                key={blog.id}
+                id={blog.id}
+                name={blog.name}
+                description={blog.description}
+                postsNum={blog.posts.totalItems}
+              />
+            ))}
+          </div>
+        )}
+        {blogs.length === 0 && <Empty />}
+      </Spinner>
     </div>
   );
 }

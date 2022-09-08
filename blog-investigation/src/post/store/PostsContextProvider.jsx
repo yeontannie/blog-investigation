@@ -9,8 +9,11 @@ const PostsContextProvider = ({ children }) => {
   const postsContextValue = useMemo(() => {
     return {
       posts: state.posts,
+      token: state.nextPageToken,
       setAllPosts: (posts) =>
         dispatch({ type: "SET_ALL_POSTS", payload: { posts } }),
+
+      setToken: (token) => dispatch({ type: "SET_TOKEN", payload: { token } }),
 
       createPost: (newPost) =>
         dispatch({ type: "CREATE_POST", payload: { newPost } }),
@@ -21,7 +24,7 @@ const PostsContextProvider = ({ children }) => {
       deletePost: (deletedPostId) =>
         dispatch({ type: "DELETE_POST", payload: { deletedPostId } }),
     };
-  }, [state.posts, dispatch]);
+  }, [state.posts, state.nextPageToken, dispatch]);
 
   return (
     <PostsContext.Provider value={postsContextValue}>

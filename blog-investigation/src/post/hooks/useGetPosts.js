@@ -8,7 +8,7 @@ import PostApiService from "../postApiService";
 export const useGetPosts = (blogId) => {
   const navigate = useNavigate();
 
-  const { setAllPosts } = usePostsContext();
+  const { setAllPosts, setToken } = usePostsContext();
   const { isLoading, toggleLoading } = useLoading();
 
   useEffect(() => {
@@ -17,6 +17,7 @@ export const useGetPosts = (blogId) => {
     PostApiService.getPosts(blogId)
       .then((response) => {
         response.data.items && setAllPosts(response.data.items);
+        response.data.nextPageToken && setToken(response.data.nextPageToken);
       })
       .catch((error) => {
         navigate("/error", {

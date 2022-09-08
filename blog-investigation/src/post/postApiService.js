@@ -18,6 +18,12 @@ export default class PostApiService {
     return axios.get(BASE_URL + blogId + `/posts/${postId}?key=${API_KEY}`);
   }
 
+  static getNextPage(blogId, token) {
+    return axios.get(
+      BASE_URL + blogId + `/posts?key=${API_KEY}&pageToken=${token}`
+    );
+  }
+
   static createPost(blogId, model) {
     return axios.post(BASE_URL + blogId + `/posts?key=${API_KEY}`, model);
   }

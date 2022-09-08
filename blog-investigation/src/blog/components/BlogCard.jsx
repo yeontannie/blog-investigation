@@ -13,18 +13,11 @@ function BlogCard(props) {
           <Translator text="Total posts:" /> {props.postsNum}
         </p>
         <p>
-          {props.postsNum > 0 ? (
-            <ButtonLink
-              btnType="primary"
-              linkTo={`${props.id}/posts`}
-              btnText="SHOW"
-            />
-          ) : (
-            <ButtonLink
-              linkTo={`${props.id}/posts`}
-              btnText="Nothing to look at"
-            />
-          )}
+          <ButtonLink
+            btnType={props.postsNum > 0 ? "primary" : "secondary"}
+            linkTo={`${props.id}/posts`}
+            btnText={props.postsNum > 0 ? "SHOW" : "Nothing to look at"}
+          />
         </p>
       </div>
     </Card>

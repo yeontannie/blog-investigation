@@ -14,10 +14,9 @@ function BlogCard(props) {
         </p>
         <p>
           <ButtonLink
-            btnType="primary"
+            btnType={props.postsNum > 0 ? "primary" : "secondary"}
             linkTo={`${props.id}/posts`}
             btnText={props.postsNum > 0 ? "SHOW" : "Nothing to look at"}
-            num={props.postsNum}
           />
         </p>
       </div>

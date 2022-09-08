@@ -24,7 +24,7 @@ const PostsContextProvider = ({ children }) => {
       deletePost: (deletedPostId) =>
         dispatch({ type: "DELETE_POST", payload: { deletedPostId } }),
     };
-  }, [state.posts, dispatch]);
+  }, [state.posts, state.nextPageToken, dispatch]);
 
   return (
     <PostsContext.Provider value={postsContextValue}>

@@ -1,17 +1,16 @@
 import React from "react";
 import { Button, Tooltip } from "antd";
-import { ReloadOutlined } from "@ant-design/icons";
+import { ReloadOutlined, LoadingOutlined } from "@ant-design/icons";
 
 import { usePostsContext } from "../../store/PostsContextProvider";
 import { useGetNextPage } from "../../hooks/useGetNextPage";
 
 export default function LoadMoreButton() {
-  const { getNextPage } = useGetNextPage();
-  const { token, setToken } = usePostsContext();
+  const { getNextPage, isLoading } = useGetNextPage();
+  const { token } = usePostsContext();
 
   const fetchNextPage = () => {
     token && getNextPage(token);
-    setToken("");
   };
 
   return (
@@ -20,7 +19,7 @@ export default function LoadMoreButton() {
         <Tooltip title="Load more">
           <Button
             shape="circle"
-            icon={<ReloadOutlined />}
+            icon={isLoading ? <LoadingOutlined /> : <ReloadOutlined />}
             size="large"
             onClick={fetchNextPage}
           />

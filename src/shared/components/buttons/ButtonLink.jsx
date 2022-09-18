@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 import Translator from "../Translator";
 
-function ButtonLink({ btnType, linkTo, btnText }) {
+function ButtonLink({ linkTo, btnText }) {
   return (
     <Link to={linkTo}>
-      <Button type={btnType}>
+      <Button type="primary">
         <Translator text={btnText} />
       </Button>
     </Link>

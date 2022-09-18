@@ -6,23 +6,21 @@ import { PlusCircleOutlined } from "@ant-design/icons";
 import Translator from "../../../shared/components/Translator";
 import { useModal } from "../../../shared/hooks/useModal";
 import PostModal from "../modal/PostModal";
+import { useWindowResize } from "../../../shared/hooks/useWindowResize";
 
 function CreatePostButton() {
   const { isModalVisible, toggleModal } = useModal();
+  const { width, breakPoint } = useWindowResize();
 
   return (
     <>
-      <Button
-        type="primary"
-        size="large"
-        shape="round"
-        onClick={toggleModal}
-        style={{ margin: "0 16px" }}
-      >
+      <Button type="primary" size="large" shape="round" onClick={toggleModal}>
         <PlusCircleOutlined />
-        <span>
-          <Translator text="New post" />
-        </span>
+        {width > breakPoint && (
+          <span>
+            <Translator text="New post" />
+          </span>
+        )}
       </Button>
       <PostModal
         isCreate={true}
@@ -37,4 +35,4 @@ function CreatePostButton() {
   );
 }
 
-export default CreatePostButton;
+export default React.memo(CreatePostButton);

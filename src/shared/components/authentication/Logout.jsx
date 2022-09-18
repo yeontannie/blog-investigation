@@ -3,9 +3,9 @@ import { Button } from "antd";
 import { GoogleOutlined } from "@ant-design/icons";
 import { GoogleLogout } from "react-google-login";
 
-import { CLIENT_ID } from "../../keys.env";
-import { useGapiAuth } from "../hooks/useGapiAuth";
-import Translator from "../components/Translator";
+import { CLIENT_ID } from "../../../keys.env";
+import { useGapiAuth } from "../../hooks/useGapiAuth";
+import Translator from "../Translator";
 
 function Logout() {
   const { onSuccessLogout } = useGapiAuth();

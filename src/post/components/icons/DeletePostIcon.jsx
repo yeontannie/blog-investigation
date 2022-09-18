@@ -1,6 +1,4 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-
 import { Popconfirm } from "antd";
 import { DeleteFilled } from "@ant-design/icons";
 
@@ -8,18 +6,12 @@ import Translator from "../../../shared/components/Translator";
 import { usePopconfirm } from "../../../shared/hooks/usePopconfirm";
 import { useDeletePost } from "../../hooks/useDeletePost";
 
-export default function ConfirmDeleteIcon({ postId }) {
-  const { blogId } = useParams();
-
+function ConfirmDeleteIcon({ postId }) {
   const { isLoading, removePost } = useDeletePost();
   const { isPopconfirmVisible, togglePopconfirm } = usePopconfirm();
 
   const handleOk = () => {
-    removePost(blogId, postId);
-  };
-
-  const handleCancel = () => {
-    togglePopconfirm();
+    removePost(postId);
   };
 
   return (
@@ -34,8 +26,10 @@ export default function ConfirmDeleteIcon({ postId }) {
           loading: isLoading,
         }}
         cancelText={<Translator text="Cancel" />}
-        onCancel={handleCancel}
+        onCancel={togglePopconfirm}
       />
     </>
   );
 }
+
+export default React.memo(ConfirmDeleteIcon);

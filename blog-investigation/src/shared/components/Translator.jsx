@@ -1,21 +1,22 @@
-import React, {useState, useEffect} from 'react'
-import translate from "translate"
+import React, { useState, useEffect } from "react";
+import translate from "translate";
 
-import { useUserSettingsContext } from '../store/UserSettingsProvider'
+import { useUserSettingsContext } from "../store/UserSettingsProvider";
 
-translate.engine = 'google'
+translate.engine = "google";
 
-export default function Translator({text}) {
-  const {language} = useUserSettingsContext()
-  const [translatedText, setTranslatedText] = useState()
+export default function Translator({ text }) {
+  const { language } = useUserSettingsContext();
+  const [translatedText, setTranslatedText] = useState();
 
   useEffect(() => {
-    const translateText = async() => {
-      const result = await translate(text, language)
-      setTranslatedText(result)
-    }
-    translateText()
-  }, [text, language])
+    const translateText = async () => {
+      let result = await translate(text, language);
+      result = result[0].toUpperCase() + result.slice(1);
+      setTranslatedText(result);
+    };
+    translateText();
+  }, [text, language]);
 
-  return <>{translatedText}</>
+  return <>{translatedText}</>;
 }

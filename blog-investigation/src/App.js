@@ -3,8 +3,8 @@ import { BrowserRouter } from 'react-router-dom'
 
 import UserSettingsProvider from './shared/store/UserSettingsProvider'
 import SharedLayout from './shared/components/layout/SharedLayout'
-import Navbar from './shared/navigation/Navbar'
-import Router from './shared/navigation/Router'
+import Navbar from './shared/components/navigation/Navbar'
+import Router from './Router'
 
 import 'antd/dist/antd.min.css' 
 

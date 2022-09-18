@@ -1,6 +1,7 @@
 export const postsInitialState = {
   posts: [],
   nextPageToken: "",
+  singlePost: {},
 };
 
 const postsReducer = (state, action) => {
@@ -17,6 +18,12 @@ const postsReducer = (state, action) => {
       return {
         ...state,
         nextPageToken: payload.token,
+      };
+
+    case "SET_SINGLE_POST":
+      return {
+        ...state,
+        singlePost: payload.post,
       };
 
     case "CREATE_POST":

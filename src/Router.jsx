@@ -1,12 +1,13 @@
-import { Routes, Route, Outlet, Navigate } from "react-router-dom";
 import React from "react";
+import { Routes, Route, Outlet, Navigate } from "react-router-dom";
 
-import Home from "../components/Home";
-import Error from "../components/Error";
-import Blogs from "../../blog/components/Blogs";
-import Posts from "../../post/components/Posts";
-import Post from "../../post/components/Post";
-import PostsContextProvider from "../../post/store/PostsContextProvider";
+import PostsContextProvider from "./post/store/PostsContextProvider";
+import Blogs from "./blog/components/Blogs";
+import Posts from "./post/components/Posts";
+import Post from "./post/components/Post";
+
+import Home from "./shared/components/Home";
+import Error from "./shared/components/Error";
 
 export default function Router() {
   return (
@@ -14,15 +15,15 @@ export default function Router() {
       <Route path="/" element={<Home />} />
       <Route path="/blogs" element={<Outlet />}>
         <Route index element={<Blogs />} />
-        <Route path=":blogId/posts" element={<Outlet />}>
-          <Route
-            index
-            element={
-              <PostsContextProvider>
-                <Posts />
-              </PostsContextProvider>
-            }
-          />
+        <Route
+          path=":blogId/posts"
+          element={
+            <PostsContextProvider>
+              <Outlet />
+            </PostsContextProvider>
+          }
+        >
+          <Route index element={<Posts />} />
           <Route path=":postId" element={<Post />} />
         </Route>
       </Route>

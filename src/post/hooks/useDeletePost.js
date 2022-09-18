@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { message } from "antd";
 
 import { useLoading } from "../../shared/hooks/useLoading";
@@ -7,11 +7,12 @@ import PostApiService from "../postApiService";
 
 export const useDeletePost = () => {
   const navigate = useNavigate();
+  const { blogId } = useParams();
 
   const { deletePost } = usePostsContext();
   const { isLoading, toggleLoading } = useLoading();
 
-  const removePost = (blogId, postId) => {
+  const removePost = (postId) => {
     toggleLoading();
     PostApiService.deletePost(blogId, postId)
       .then(() => {

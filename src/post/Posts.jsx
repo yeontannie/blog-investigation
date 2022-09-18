@@ -1,5 +1,6 @@
 import React from "react";
 
+import { useUserSettingsContext } from "../shared/store/UserSettingsProvider";
 import Spinner from "../shared/components/Spinner";
 import { useGetPosts } from "./hooks/useGetPosts";
 
@@ -8,13 +9,14 @@ import SearchPostsInput from "./components/SearchPostsInput";
 import PostList from "./components/PostList";
 
 function Posts() {
+  const { isLoggedIn } = useUserSettingsContext();
   const { isLoading } = useGetPosts();
 
   return (
     <div>
       <Spinner isLoading={isLoading}>
         <div className="posts-header">
-          <CreatePostButton />
+          {isLoggedIn && <CreatePostButton />}
           <SearchPostsInput />
         </div>
         <PostList />

@@ -16,7 +16,7 @@ function SearchPostsInput() {
       enterButton
       loading={isLoading}
       onSearch={onSearch}
-      style={{ margin: "0 0 0 3vh", minWidth: "20vh" }}
+      style={{ minWidth: "20vh" }}
     />
   );
 }

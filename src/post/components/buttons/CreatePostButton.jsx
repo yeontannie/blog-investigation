@@ -14,7 +14,13 @@ function CreatePostButton() {
 
   return (
     <>
-      <Button type="primary" size="large" shape="round" onClick={toggleModal}>
+      <Button
+        type="primary"
+        size="large"
+        shape="round"
+        style={{ marginRight: "16px" }}
+        onClick={toggleModal}
+      >
         <PlusCircleOutlined />
         {width > breakPoint && (
           <span>

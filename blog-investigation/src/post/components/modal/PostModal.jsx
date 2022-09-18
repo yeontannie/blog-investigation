@@ -1,27 +1,25 @@
-import React, { useState } from "react";
-import { Modal, Form } from "antd";
+import React from "react";
+import { useParams } from "react-router-dom";
+import { Modal, Form, Input } from "antd";
 
 import Translator from "../../../shared/components/Translator";
-import ModalTitleInput from "./ModalTitleInput";
-import ModalContentInput from "./ModalContentInput";
+import { DefaultEditor } from "react-simple-wysiwyg";
 
-import { useParams } from "react-router-dom";
 import { useCreatePost } from "../../hooks/useCreatePost";
 import { useUpdatePost } from "../../hooks/useUpdatePost";
 
 function PostModal({ isCreate, isVisible, toggleModal, currentPost }) {
+  const [form] = Form.useForm();
   const { blogId } = useParams();
 
   const { addPost } = useCreatePost();
   const { editPost } = useUpdatePost();
 
-  const [post, setPost] = useState(currentPost);
-
   const handleCancel = () => {
     toggleModal();
   };
 
-  const handleOk = () => {
+  const handleOk = (post) => {
     toggleModal();
 
     const model = {
@@ -33,8 +31,13 @@ function PostModal({ isCreate, isVisible, toggleModal, currentPost }) {
       content: post.content,
     };
 
-    isCreate ? addPost(blogId, model) : editPost(post.blog.id, post.id, post);
-    isCreate && setPost({ title: "", content: "" });
+    isCreate
+      ? addPost(blogId, model)
+      : editPost(currentPost.blog.id, currentPost.id, post);
+  };
+
+  const getValuesOnOk = () => {
+    handleOk(form.getFieldsValue());
   };
 
   return (
@@ -44,20 +47,32 @@ function PostModal({ isCreate, isVisible, toggleModal, currentPost }) {
       title={<Translator text={isCreate ? "Create Post" : "Edit Post"} />}
       okText={<Translator text="Save" />}
       cancelText={<Translator text="Cancel" />}
-      onOk={handleOk}
       onCancel={handleCancel}
+      onOk={getValuesOnOk}
     >
       <Form
-        name="basic"
-        labelCol={{ span: 5 }}
-        wrapperCol={{ span: 16 }}
+        form={form}
+        layout="vertical"
+        name="form_in_modal"
         autoComplete="off"
       >
-        <ModalTitleInput title={post.title} onChange={setPost} />
-        <ModalContentInput content={post.content} onChange={setPost} />
+        <Form.Item
+          name="title"
+          label={<Translator text="Title" />}
+          initialValue={currentPost.title}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          name="content"
+          label={<Translator text="Content" />}
+          initialValue={currentPost.content}
+        >
+          <DefaultEditor />
+        </Form.Item>
       </Form>
     </Modal>
   );
 }
 
-export default PostModal;
+export default React.memo(PostModal);

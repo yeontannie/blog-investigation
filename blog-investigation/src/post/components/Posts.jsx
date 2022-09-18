@@ -1,21 +1,14 @@
 import React from "react";
-import { Empty } from "antd";
-import { useParams } from "react-router-dom";
 
 import Spinner from "../../shared/components/Spinner";
-import { usePostsContext } from "../store/PostsContextProvider";
 import { useGetPosts } from "../hooks/useGetPosts";
 
 import CreatePostButton from "./buttons/CreatePostButton";
-import PostCard from "./PostCard";
 import SearchPostsInput from "./SearchPostsInput";
-import LoadMoreButton from "./buttons/LoadMoreButton";
+import PostList from "./PostList";
 
 function Posts() {
-  const { blogId } = useParams();
-
-  const { posts, token } = usePostsContext();
-  const { isLoading } = useGetPosts(blogId);
+  const { isLoading } = useGetPosts();
 
   return (
     <div>
@@ -24,18 +17,7 @@ function Posts() {
           <CreatePostButton />
           <SearchPostsInput />
         </div>
-        {posts.length === 0 ? (
-          <Empty className="empty" />
-        ) : (
-          <>
-            <div className="post-card-list">
-              {posts.map((post) => (
-                <PostCard key={post.id} post={post} />
-              ))}
-            </div>
-            <LoadMoreButton />
-          </>
-        )}
+        <PostList />
       </Spinner>
     </div>
   );

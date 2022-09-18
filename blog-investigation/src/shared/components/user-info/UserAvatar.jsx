@@ -3,8 +3,10 @@ import { Avatar } from "antd";
 
 import { useDrawer } from "../../hooks/useDrawer";
 import UserInfoDrawer from "./UserInfoDrawer";
+import { useWindowResize } from "./../../hooks/useWindowResize";
 
 export default function UserAvatar() {
+  const { width, breakPoint } = useWindowResize();
   const { toggleDrawer, visible } = useDrawer();
   const userData = JSON.parse(localStorage.getItem("userData"));
 
@@ -15,11 +17,9 @@ export default function UserAvatar() {
         style={{
           verticalAlign: "middle",
         }}
-        size="large"
+        size={width > breakPoint ? "large" : "small"}
         onClick={toggleDrawer}
-      >
-        T
-      </Avatar>
+      />
       <UserInfoDrawer visible={visible} onClose={toggleDrawer} />
     </>
   );

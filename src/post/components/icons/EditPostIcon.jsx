@@ -2,7 +2,7 @@ import React from "react";
 import { EditFilled } from "@ant-design/icons";
 
 import { useModal } from "../../../shared/hooks/useModal";
-import PostModal from "../modal/PostModal";
+import PostModal from "../PostModal";
 
 function EditPostIcon({ post }) {
   const { isModalVisible, toggleModal } = useModal();

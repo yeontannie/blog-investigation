@@ -5,7 +5,7 @@ import { PlusCircleOutlined } from "@ant-design/icons";
 
 import Translator from "../../../shared/components/Translator";
 import { useModal } from "../../../shared/hooks/useModal";
-import PostModal from "../modal/PostModal";
+import PostModal from "../PostModal";
 import { useWindowResize } from "../../../shared/hooks/useWindowResize";
 
 function CreatePostButton() {

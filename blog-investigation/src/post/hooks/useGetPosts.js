@@ -1,12 +1,13 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { useLoading } from "../../shared/hooks/useLoading";
 import { usePostsContext } from "../store/PostsContextProvider";
 import PostApiService from "../postApiService";
 
-export const useGetPosts = (blogId) => {
+export const useGetPosts = () => {
   const navigate = useNavigate();
+  const { blogId } = useParams();
 
   const { setAllPosts, setToken } = usePostsContext();
   const { isLoading, toggleLoading } = useLoading();

@@ -5,7 +5,7 @@ import { useSearchPosts } from "../hooks/useSearchPosts";
 
 const { Search } = Input;
 
-export default function SearchPostsInput() {
+function SearchPostsInput() {
   const { isLoading, onSearch } = useSearchPosts();
 
   return (
@@ -16,7 +16,9 @@ export default function SearchPostsInput() {
       enterButton
       loading={isLoading}
       onSearch={onSearch}
-      style={{ margin: "0 16px" }}
+      style={{ margin: "0 0 0 3vh", minWidth: "20vh" }}
     />
   );
 }
+
+export default React.memo(SearchPostsInput);

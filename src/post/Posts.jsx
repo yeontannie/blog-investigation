@@ -1,11 +1,11 @@
 import React from "react";
 
-import Spinner from "../../shared/components/Spinner";
-import { useGetPosts } from "../hooks/useGetPosts";
+import Spinner from "../shared/components/Spinner";
+import { useGetPosts } from "./hooks/useGetPosts";
 
-import CreatePostButton from "./buttons/CreatePostButton";
-import SearchPostsInput from "./SearchPostsInput";
-import PostList from "./PostList";
+import CreatePostButton from "./components/buttons/CreatePostButton";
+import SearchPostsInput from "./components/SearchPostsInput";
+import PostList from "./components/PostList";
 
 function Posts() {
   const { isLoading } = useGetPosts();

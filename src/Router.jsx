@@ -2,8 +2,8 @@ import React from "react";
 import { Routes, Route, Outlet, Navigate } from "react-router-dom";
 
 import PostsContextProvider from "./post/store/PostsContextProvider";
-import Blogs from "./blog/components/Blogs";
-import Posts from "./post/components/Posts";
+import Blogs from "./blog/Blogs";
+import Posts from "./post/Posts";
 import Post from "./post/components/Post";
 
 import Home from "./shared/components/Home";

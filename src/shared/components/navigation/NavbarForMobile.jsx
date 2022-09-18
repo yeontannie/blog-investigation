@@ -28,7 +28,7 @@ function NavbarForMobile() {
           <Link to="/">
             {theme === "dark" ? (
               <span>
-                <HomeOutlined style={{ color: "white", fontSize: "18px" }} />
+                <HomeOutlined style={{ color: "white" }} />
               </span>
             ) : (
               <span>
@@ -42,7 +42,7 @@ function NavbarForMobile() {
             {theme === "dark" ? (
               <span>
                 {" "}
-                <BookOutlined style={{ color: "white", fontSize: "18px" }} />
+                <BookOutlined style={{ color: "white" }} />
               </span>
             ) : (
               <span>

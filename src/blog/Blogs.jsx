@@ -1,9 +1,9 @@
 import React from "react";
 import { Empty } from "antd";
 
-import Spinner from "../../shared/components/Spinner";
-import { useGetBlogs } from "../hooks/useGetBlogs";
-import BlogCard from "./BlogCard";
+import Spinner from "../shared/components/Spinner";
+import { useGetBlogs } from "./hooks/useGetBlogs";
+import BlogCard from "./components/BlogCard";
 
 function Blogs() {
   const { isLoading, blogs } = useGetBlogs();

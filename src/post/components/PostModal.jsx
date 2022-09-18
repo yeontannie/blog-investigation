@@ -2,11 +2,11 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { Modal, Form, Input } from "antd";
 
-import Translator from "../../../shared/components/Translator";
+import Translator from "../../shared/components/Translator";
 import { DefaultEditor } from "react-simple-wysiwyg";
 
-import { useCreatePost } from "../../hooks/useCreatePost";
-import { useUpdatePost } from "../../hooks/useUpdatePost";
+import { useCreatePost } from "../hooks/useCreatePost";
+import { useUpdatePost } from "../hooks/useUpdatePost";
 
 function PostModal({ isCreate, isVisible, toggleModal, currentPost }) {
   const [form] = Form.useForm();

@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { message } from "antd";
 
+import Translator from "../../shared/components/Translator";
 import { useLoading } from "../../shared/hooks/useLoading";
 import { usePostsContext } from "../store/PostsContextProvider";
 import PostApiService from "../postApiService";
@@ -17,7 +18,7 @@ export const useDeletePost = () => {
     PostApiService.deletePost(blogId, postId)
       .then(() => {
         deletePost(postId);
-        message.success("Deleted successfully");
+        message.success(<Translator text="Deleted successfully" />);
       })
       .catch((error) => {
         navigate("/error", {

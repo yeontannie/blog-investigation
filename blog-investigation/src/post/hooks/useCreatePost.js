@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import PostApiService from "../postApiService";
 import { usePostsContext } from "../store/PostsContextProvider";
+import Translator from "../../shared/components/Translator";
 
 export const useCreatePost = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ export const useCreatePost = () => {
     PostApiService.createPost(blogId, model)
       .then((response) => {
         createPost(response.data);
-        message.success("Created successfully");
+        message.success(<Translator text="Created successfully" />);
       })
       .catch((error) => {
         navigate("/error", {

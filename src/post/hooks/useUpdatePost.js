@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { message } from "antd";
 
-import PostApiService from "../postApiService";
+import Translator from "../../shared/components/Translator";
 import { usePostsContext } from "../store/PostsContextProvider";
+import PostApiService from "../postApiService";
 
 export const useUpdatePost = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ export const useUpdatePost = () => {
     PostApiService.updatePost(blogId, postId, model)
       .then((response) => {
         updatePost(response.data);
-        message.success("Updated successfully");
+        message.success(<Translator text="Updated successfully" />);
       })
       .catch((error) => {
         navigate("/error", {

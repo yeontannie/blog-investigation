@@ -15,8 +15,8 @@ function PostCard(props) {
   const { theme, isLoggedIn } = useUserSettingsContext();
 
   const title =
-    props.post.title.length > 30
-      ? props.post.title.slice(0, 30) + "..."
+    props.post.title.length > 8
+      ? props.post.title.slice(0, 8) + "..."
       : props.post.title;
 
   const published = moment(props.post.published.toString()).format(
@@ -42,4 +42,4 @@ function PostCard(props) {
   );
 }
 
-export default PostCard;
+export default React.memo(PostCard);

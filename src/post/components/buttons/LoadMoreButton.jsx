@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Tooltip } from "antd";
 import { ReloadOutlined, LoadingOutlined } from "@ant-design/icons";
 
+import Translator from "../../../shared/components/Translator";
 import { usePostsContext } from "../../store/PostsContextProvider";
 import { useGetNextPage } from "../../hooks/useGetNextPage";
 
@@ -16,7 +17,7 @@ export default function LoadMoreButton() {
   return (
     <div className="load-more-posts">
       {token && (
-        <Tooltip title="Load more">
+        <Tooltip title={<Translator text="Load more" />}>
           <Button
             shape="circle"
             icon={isLoading ? <LoadingOutlined /> : <ReloadOutlined />}

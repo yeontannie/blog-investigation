@@ -7,17 +7,15 @@ import Translator from "../../shared/components/Translator";
 function BlogCard(props) {
   return (
     <Card title={<Translator text={props.name} />} className="blog-card">
-      <p>{<Translator text={props.description} />}</p>
+      <p className="blog-card-description">
+        {<Translator text={props.description} />}
+      </p>
       <div className="blog-card-content">
         <p>
           <Translator text="Total posts:" /> {props.postsNum}
         </p>
         <p>
-          <ButtonLink
-            btnType={props.postsNum > 0 ? "primary" : "secondary"}
-            linkTo={`${props.id}/posts`}
-            btnText={props.postsNum > 0 ? "SHOW" : "Nothing to look at"}
-          />
+          <ButtonLink linkTo={`${props.id}/posts`} btnText="SHOW" />
         </p>
       </div>
     </Card>
